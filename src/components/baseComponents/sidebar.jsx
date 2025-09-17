@@ -1,25 +1,13 @@
-import React, { useState } from 'react';
-import { Drawer, Button, Box } from '@mui/material';
 
-export default function Sidebar() {
-    const [open, setOpen] = useState(false);
+import React from 'react';
+import { Drawer, Box } from '@mui/material';
 
-    const toggleDrawer = (newOpen) => () => {
-        setOpen(newOpen);
-    };
+export default function Sidebar({ isOpen, onClose }) {
 
-    const drawerList = (
-        <Box sx={{ width: 250, p: 2 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
-            teste
-        </Box>
-    );
 
     return (
-        <>
-            <Button variant="contained" onClick={toggleDrawer(true)}>Open drawer</Button>
-            <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
-                {drawerList}
-            </Drawer>
-        </>
+        <Drawer anchor="left" open={isOpen} onClose={onClose}>
+            {/*{drawerList}*/}
+        </Drawer>
     );
-}        
+}

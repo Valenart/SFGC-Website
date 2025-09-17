@@ -6,7 +6,7 @@ export const TitleMain = styled.h1`
 `;
 
 export const TitleSection = styled.h2`
-  font-size: 2rem;
+  font-size: 10rem;
   font-weight: bold;
 `;
 
