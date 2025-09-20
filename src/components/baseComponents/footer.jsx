@@ -17,7 +17,7 @@ const Footer = () => (
         <Container maxWidth={false} disableGutters sx={{ px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 } }}>
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 2 }}>
                 <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', mb: 2 }}>
-                    <Box component="nav" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, mb: 1 }}>
+                    <Box component="nav" sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left', gap: 2, mb: 1 }}>
                         <Typography variant="body2" component="a" href="/" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
                             Home
                         </Typography>
@@ -28,7 +28,7 @@ const Footer = () => (
                             Contato
                         </Typography>
                     </Box>
-                    <Box component="nav" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, mb: 1 }}>
+                    <Box component="nav" sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left', gap: 2, mb: 1 }}>
                         <Typography variant="body2" component="a" href="/" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
                             Home
                         </Typography>
