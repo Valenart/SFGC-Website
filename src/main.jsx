@@ -5,7 +5,9 @@ import App from './App.jsx';
 import { Navigate, RouterProvider, createBrowserRouter, } from 'react-router-dom';
 import Login from './pages/login/login.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
-import Home from './components/home/home.jsx';
+import Home from './pages/home/home.jsx';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import theme from './theme';
 
 const router = createBrowserRouter([
   {
@@ -17,19 +19,22 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />
       },
-      {
-        path: 'login',
-        element: <Login />
-      }
+
     ]
   },
-
+  {
+    path: 'login',
+    element: <Login />
+  },
 
 ])
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>,
 )

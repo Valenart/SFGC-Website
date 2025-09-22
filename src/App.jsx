@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Box, Container, Typography, TextField, InputAdornment, OutlinedInput, InputLabel, IconButton, FormControl } from '@mui/material';
 import Navbar from './components/baseComponents/navbar';
@@ -6,11 +5,10 @@ import Sidebar from './components/baseComponents/sidebar';
 import Footer from './components/baseComponents/footer';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import { TitleSection } from './components/styledComponents/styles';
-
 import './App.css';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import Login from './pages/login/login';
+import { Outlet } from 'react-router-dom';
 
 
 function App() {
@@ -23,8 +21,6 @@ function App() {
   const handleCloseSidebar = () => {
     setIsOpen(false);
   };
-
-  const StyledTitle = TitleSection;
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -43,10 +39,11 @@ function App() {
           px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 },
           pt: { xs: 2, sm: 3 },
           minHeight: '80vh',
-          backgroundColor: '#F8F2E7'
+          backgroundColor: '#F8F2E7',
+          overflowX: 'hidden'
         }}
       >
-        {/* Aqui virão os children das rotas, ex: <Outlet /> */}
+        <Outlet />
       </Container>
       <Footer />
     </>
