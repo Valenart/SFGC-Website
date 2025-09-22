@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Box, Container, Typography, TextField, InputAdornment, OutlinedInput, InputLabel, IconButton, FormControl } from '@mui/material';
 import Navbar from './components/baseComponents/navbar';
@@ -40,7 +39,8 @@ function App() {
           px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 },
           pt: { xs: 2, sm: 3 },
           minHeight: '80vh',
-          backgroundColor: '#F8F2E7'
+          backgroundColor: '#F8F2E7',
+          overflowX: 'hidden'
         }}
       >
         <Outlet />

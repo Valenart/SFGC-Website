@@ -3,25 +3,25 @@ const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';
 const COLOR_PAPER = '#d9d9d9';
 
-
 import React from 'react';
-import { Box, Grid, Typography, Button, Paper } from '@mui/material';
+import { Box, Grid, Paper } from '@mui/material';
+import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
 
 // Componentes reutilizáveis para estilizações
-const SectionTitle = ({ children }) => (
-    <Typography variant="subtitle2" sx={{ color: COLOR_PRIMARY, fontWeight: 700, letterSpacing: 1, mb: 1 }}>
-        {children}
-    </Typography>
+const SectionPaper = ({ height = 260 }) => (
+    <Paper elevation={0} sx={{ bgcolor: COLOR_PAPER, height, borderRadius: 0, width: '300px' }} />
 );
 
-const SectionPaper = ({ height = 200 }) => (
-    <Paper elevation={0} sx={{ border: `4px solid ${COLOR_PRIMARY}`, bgcolor: COLOR_PAPER, height, mb: { xs: 2, md: 0 } }} />
+const SectionTitle = ({ children }) => (
+    <SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1rem">
+        {children.replace('— ', '')}
+    </SectionType>
 );
 
 const SectionText = ({ children }) => (
-    <Typography variant="body1" sx={{ color: COLOR_DARK, maxWidth: 420 }}>
+    <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
         {children}
-    </Typography>
+    </Text>
 );
 
 export default function LocationSection() {
@@ -34,10 +34,10 @@ export default function LocationSection() {
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        <SectionTitle>— LOCALIZAÇÃO</SectionTitle>
-                        <Typography variant="h4" sx={{ color: COLOR_DARK, fontWeight: 700, mb: 1, lineHeight: 1.1 }}>
+                        <SectionTitle> LOCALIZAÇÃO </SectionTitle>
+                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="2.2rem">
                             O MELHOR DO GOLF<br />EM OSASCO
-                        </Typography>
+                        </Title>
                         <SectionText>
                             O <span style={{ color: COLOR_PRIMARY }}>São Francisco Golf Club</span> está situado em uma das áreas mais nobres de Osasco, sendo o clube de golfe mais próximo do centro de São Paulo. Com fácil acesso, está a poucos minutos do Parque Villa-Lobos e do Shopping União de Osasco, oferecendo conveniência e exclusividade aos seus visitantes.
                         </SectionText>
@@ -48,16 +48,22 @@ export default function LocationSection() {
                 {/* Nosso Mapa */}
                 <Grid item xs={12} md={6}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
-                        <SectionTitle>— NOSSO MAPA</SectionTitle>
-                        <Typography variant="h4" sx={{ color: COLOR_DARK, fontWeight: 700, mb: 1, lineHeight: 1.1 }}>
+                        <SectionTitle> NOSSO MAPA </SectionTitle>
+                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="2.2rem">
                             VISUALIZE O MAPA DO<br />SÃO FRANCISCO GOLF CLUB
-                        </Typography>
+                        </Title>
                         <SectionText>
                             Explore cada detalhe do São Francisco Golf Club com o nosso mapa do campo. Visualize o percurso, planeje suas tacadas e aproveite a melhor experiência de golfe em um ambiente exclusivo e bem localizado.
                         </SectionText>
-                        <Button variant="contained" sx={{ backgroundColor: COLOR_PRIMARY, color: '#fff', width: 'fit-content', borderRadius: 0, px: 3, py: 1.2, mt: 1, fontWeight: 700, boxShadow: 'none', '&:hover': { backgroundColor: '#a06e13' } }}>
+                        <CustomButton
+                            backgroundColor={COLOR_PRIMARY}
+                            fontFamily="inherit"
+                            fontSize="1rem"
+                            padding="10px 24px"
+                            sx={{ color: '#fff', width: 'fit-content', borderRadius: 0, mt: 1, fontWeight: 700, boxShadow: 'none', '&:hover': { backgroundColor: '#a06e13' } }}
+                        >
                             BAIXE O PDF
-                        </Button>
+                        </CustomButton>
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>

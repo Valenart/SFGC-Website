@@ -1,0 +1,76 @@
+import React from 'react';
+import { Box, Grid } from '@mui/material';
+import { Title, Text } from '../../../components/globalComponents/globalcomponents';
+import EmailIcon from '@mui/icons-material/Email';
+import PlaceIcon from '@mui/icons-material/Place';
+import PhoneIcon from '@mui/icons-material/Phone';
+
+const COLOR_PRIMARY = '#B58017';
+const COLOR_DARK = '#20491A';
+const COLOR_BG = '#f8f6ec';
+
+export default function ContatoSection() {
+    return (
+        <Box sx={{ bgcolor: COLOR_BG, py: { xs: 6, md: 8 }, px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 } }}>
+            <Grid container spacing={4} alignItems="flex-start" justifyContent="center">
+                {/* Horários */}
+                <Grid item xs={12} md={6}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem" sx={{ mb: 1 }}>
+                            HORÁRIOS DE FUNCIONAMENTO
+                        </Title>
+                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" sx={{ fontWeight: 700 }}>
+                            CAMPO
+                        </Text>
+                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
+                            Terça a Domingo<br />
+                            7:00 - 17:00
+                        </Text>
+                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" sx={{ fontWeight: 700, mt: 2 }}>
+                            DRIVE RANGE
+                        </Text>
+                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
+                            Terça a Domingo<br />
+                            7:00 - 18:00
+                        </Text>
+                    </Box>
+                </Grid>
+                {/* Contato */}
+                <Grid item xs={12} md={6}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem" sx={{ mb: 1 }}>
+                            CONTATO
+                        </Title>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <PhoneIcon sx={{ color: COLOR_PRIMARY, fontSize: 20 }} />
+                            <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
+                                (11) 3681-8752 / 3681-0329
+                            </Text>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <EmailIcon sx={{ color: COLOR_PRIMARY, fontSize: 20 }} />
+                            <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
+                                Saofranciscogolf@uol.com.br
+                            </Text>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <PlaceIcon sx={{ color: COLOR_PRIMARY, fontSize: 20 }} />
+                            <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
+                                Av. Martin Luther King 1527, Osasco - SP
+                            </Text>
+                        </Box>
+                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" sx={{ mt: 1 }}>
+                            <span style={{ color: COLOR_PRIMARY, fontWeight: 700 }}>Não aceitamos Cartões de Crédito/Débito.</span>
+                        </Text>
+                    </Box>
+                </Grid>
+                {/* Nota */}
+                <Grid item xs={12}>
+                    <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" sx={{ textAlign: 'center', mt: 4, fontWeight: 700 }}>
+                        NOTA: O clube não está disponível para eventos externos como casamentos, aniversários ou outras confraternizações.
+                    </Text>
+                </Grid>
+            </Grid>
+        </Box>
+    );
+}
