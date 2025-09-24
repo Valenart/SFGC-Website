@@ -27,11 +27,10 @@ const SectionText = ({ children }) => (
 export default function LocationSection() {
     return (
         <Box sx={{ minHeight: '100vh', py: { xs: 4, md: 8 } }}>
-            <Grid container spacing={6} justifyContent="center" alignItems="flex-start" sx={{ maxWidth: 1400, mx: 'auto' }}>
+            <Grid container spacing={6} justifyContent="center" alignItems="center" sx={{ maxWidth: 1400, mx: 'auto' }}>
+
                 {/* Localização */}
-                <Grid item xs={12} md={6}>
-                    <SectionPaper height={260} />
-                </Grid>
+
                 <Grid item xs={12} md={6}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <SectionTitle> LOCALIZAÇÃO </SectionTitle>
@@ -65,9 +64,6 @@ export default function LocationSection() {
                             BAIXE O PDF
                         </CustomButton>
                     </Box>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <SectionPaper />
                 </Grid>
             </Grid>
         </Box>

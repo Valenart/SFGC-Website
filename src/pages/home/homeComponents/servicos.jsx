@@ -34,10 +34,10 @@ export default function ServicosSection() {
                             </Stack> */}
                         </Box>
                         <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
-                            Oferecemos aluguel de <span style={{ color: COLOR_PRIMARY, fontWeight: 600 }}>tacos</span>, <span style={{ color: COLOR_PRIMARY, fontWeight: 600 }}>carrinhos</span> e acessórios de <span style={{ color: COLOR_PRIMARY, fontWeight: 600 }}>alta qualidade</span> para a sua comodidade. Para quem deseja aprimorar as suas habilidades, contamos com aulas ministradas por profissionais experientes e um driving Range dedicado à prática.
+                            Oferecemos aluguel de <span style={{ color: COLOR_PRIMARY }}>tacos</span>, <span style={{ color: COLOR_PRIMARY }}>carrinhos</span> e acessórios de <span style={{ color: COLOR_PRIMARY }}>alta qualidade</span> para a sua comodidade. Para quem deseja aprimorar as suas habilidades, contamos com aulas ministradas por profissionais experientes e um driving Range dedicado à prática.
                         </Text>
                         <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
-                            Após a partida, <span style={{ color: COLOR_PRIMARY, fontWeight: 600 }}>aproveite nossa lanchonete e restaurante</span>, que disponibilizam um selecionado em horários programados, proporcionando mais conforto e praticidade durante sua estadia no campo.
+                            Após a partida, <span style={{ color: COLOR_PRIMARY }}>aproveite nossa lanchonete e restaurante</span>, que disponibilizam um selecionado em horários programados, proporcionando mais conforto e praticidade durante sua estadia no campo.
                         </Text>
                         <CustomButton
                             backgroundColor={COLOR_PRIMARY}
@@ -53,13 +53,13 @@ export default function ServicosSection() {
 
                 {/* Imagens/Slider */}
                 <Grid item xs={12} md={6}>
-                    <Box sx={{ height: 220 }}>
+                    <Box sx={{ height: 420 }}>
                         <Swiper
                             modules={[Pagination]}
                             spaceBetween={16}
                             slidesPerView={2}
                             pagination={{ clickable: true }}
-                            style={{ height: 180 }}
+                            onNavigationShow={true}
                             breakpoints={{
                                 0: { slidesPerView: 1 },
                                 600: { slidesPerView: 2 },
@@ -67,7 +67,7 @@ export default function ServicosSection() {
                         >
                             {[1, 2, 3].map((i) => (
                                 <SwiperSlide key={i}>
-                                    <Box sx={{ height: 180, bgcolor: '#bdbdbd', border: `4px solid ${COLOR_PRIMARY}` }} />
+                                    <Box sx={{ height: 400, bgcolor: '#bdbdbd', border: `4px solid ${COLOR_PRIMARY}` }} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

@@ -1,14 +1,15 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
-import { SectionType, Title, Text } from '../../../components/globalComponents/globalcomponents';
+import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
 
+const COLOR_PRIMARY = '#fff';
 const COLOR_BG = '#263126';
 
 export default function NoticiaSection() {
     return (
         <Box
             sx={{
-                width: '100%',
+                width: '100vw', // Corrigido de '100vw' para '100%'
                 position: 'relative',
                 bgcolor: COLOR_BG,
                 minHeight: { xs: 500, md: 600 },
@@ -19,31 +20,27 @@ export default function NoticiaSection() {
                 backgroundPosition: 'center',
             }}
         >
-            <Box
-                sx={{
-                    px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 },
-                    maxWidth: '1920px',
-                    mx: 'auto',
-                }}
-            >
-                <SectionType color="#fff" fontFamily="inherit" fontSize="1.1rem" sx={{ textAlign: 'center', mb: 1 }}>
-                    NOTÍCIAS
-                </SectionType>
-                <Title color="#fff" fontFamily="inherit" fontSize="2.8rem" sx={{ textAlign: 'center', mb: 1 }}>
-                    TORNEIOS E ATUALIZAÇÕES
-                </Title>
-                <Text color="#fff" fontFamily="inherit" fontSize="1.1rem" sx={{ textAlign: 'center', mb: 4 }}>
-                    Confira as novidades e os eventos recentes do clube. Fique atento às atualizações.
-                </Text>
-                <Grid container spacing={4} justifyContent="center" alignItems="flex-start" sx={{ mt: 2 }}>
+            <Box >
+                <Box sx={{ display: 'flex', textAlign: 'center', flexDirection: 'column' }}>
+                    <SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1rem">
+                        NOTÍCIAS —
+                    </SectionType>
+                    <Title color="#fff" fontFamily="inherit" fontSize="2.2rem">
+                        TORNEIOS E ATUALIZAÇÕES
+                    </Title>
+                    <Text color="#fff" fontFamily="inherit">
+                        Confira as novidades e os eventos recentes do clube. Fique atento às atualizações.
+                    </Text>
+                </Box>
+
+                <Grid container spacing={4} alignItems="center" sx={{ mt: 2 }}>
                     {[1, 2, 3].map((i) => (
                         <Grid item xs={12} md={4} key={i}>
                             <Box
                                 sx={{
-                                    width: '100%',
+                                    width: '80%',
                                     height: { xs: 220, md: 320 },
                                     bgcolor: '#bdbdbd',
-                                    borderRadius: 1,
                                     boxShadow: 2,
                                     mx: 'auto',
                                 }}

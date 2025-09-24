@@ -11,7 +11,7 @@ export default function HistoriaSection() {
 		<Box
 			sx={{
 				bgcolor: COLOR_BG,
-				width: '100vw',
+				width: '100%',
 				py: { xs: 4, md: 8 },
 				overflowX: 'hidden',
 			}}

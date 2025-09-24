@@ -12,9 +12,12 @@ export const SectionType = ({ children, color, fontFamily, fontSize, ...rest }) 
     return (
         <Typography
             variant="h2"
-            sx={{ color: color, fontFamily: fontFamily, fontSize: fontSize }}
+            sx={{
+                color: color,
+                fontFamily: fontFamily,
+                fontSize: fontSize
+            }}
             id="section-type"
-            {...rest}
         >
             — {children}
         </Typography>
@@ -33,19 +36,17 @@ export const Title = ({ children, color = '#FFF', fontFamily, fontSize, ...rest 
             mb: 1
         }}
         id="title"
-        {...rest}
     >
         {children}
     </Typography>
 );
 
 /* COMPONENTE DE TEXTO DE SEÇÃO */
-export const Text = ({ children, color, fontFamily, fontSize, ...rest }) => (
+export const Text = ({ children, color, fontFamily, fontSize = '1rem', ...rest }) => (
     <Typography
         variant="body1"
         sx={{ color: color, fontFamily: fontFamily, fontSize: fontSize }}
         id="text"
-        {...rest}
     >
         {children}
     </Typography>

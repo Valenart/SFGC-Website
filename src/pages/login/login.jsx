@@ -30,7 +30,7 @@ export default function Login() {
         <Grid
           item
           xs={12}
-          md={7}
+          md={8}
           sx={{
             display: { xs: 'none', md: 'block' },
             backgroundImage: 'url(/bg-login.jpg)', // coloque sua imagem em public/bg-login.jpg
@@ -48,11 +48,12 @@ export default function Login() {
             </Text>
           </Box>
         </Grid>
+
         {/* Formulário à direita */}
         <Grid
           item
           xs={12}
-          md={5}
+          md={4}
           sx={{
             bgcolor: 'rgba(11,48,13,0.95)',
             display: 'flex',
@@ -76,7 +77,7 @@ export default function Login() {
             <Title color="#fff" fontFamily="inherit" fontSize="1.5rem" sx={{ mb: 1, textAlign: 'center', letterSpacing: 1 }}>
               São Francisco Golf Club
             </Title>
-            <Text color="#fff" fontFamily="inherit" fontSize="1rem" sx={{ mb: 3, textAlign: 'center', letterSpacing: 1 }}>
+            <Text fontFamily="inherit" fontSize="1rem" sx={{ mb: 3, textAlign: 'center', letterSpacing: 1, color: "#fff" }}>
               ÁREA EXCLUSIVA PARA FUNCIONÁRIOS
             </Text>
             <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -99,8 +100,8 @@ export default function Login() {
                     color: '#fff',
                     bgcolor: 'transparent',
                     '& .MuiOutlinedInput-notchedOutline': { borderColor: '#fff' },
-                    '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: theme.palette.primary.main },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: theme.palette.primary.main },
+                    '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: /*theme.palette.primary.main*/ '#FFF' },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: /*theme.palette.primary.main*/ '#FFF' },
                   },
                 }}
               />
