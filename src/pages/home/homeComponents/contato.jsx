@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
-import { Title, Text } from '../../../components/globalComponents/globalcomponents';
+import { Title, Text, SectionType } from '../../../components/globalComponents/globalcomponents';
 import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -14,21 +14,23 @@ export default function ContatoSection() {
             <Grid container spacing={4} alignItems="flex-start" justifyContent="center">
                 {/* Horários */}
                 <Grid item xs={12} md={6}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem">
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                        <SectionType color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem">
                             HORÁRIOS DE FUNCIONAMENTO
-                        </Title>
-                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" >
-                            CAMPO
-                        </Text>
-                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
-                            Terça a Domingo<br />
-                            7:00 - 17:00
-                        </Text>
-                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
+                        </SectionType>
+                        <Box sx={{ gap: 2 }}>
+                            <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" fontWeight="600">
+                                CAMPO
+                            </Text>
+                            <Text color={COLOR_DARK} fontFamily="inherit" fontSize="0.85rem">
+                                Terça a Domingo<br />
+                                7:00 - 17:00
+                            </Text>
+                        </Box>
+                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" fontWeight="600">
                             DRIVE RANGE
                         </Text>
-                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
+                        <Text color={COLOR_DARK} fontFamily="inherit" fontSize="0.85rem">
                             Terça a Domingo<br />
                             7:00 - 18:00
                         </Text>
@@ -37,9 +39,9 @@ export default function ContatoSection() {
                 {/* Contato */}
                 <Grid item xs={12} md={6}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem">
+                        <SectionType color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem">
                             CONTATO
-                        </Title>
+                        </SectionType>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                             <PhoneIcon sx={{ color: COLOR_DARK, fontSize: 20 }} />
                             <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">

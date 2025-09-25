@@ -35,13 +35,13 @@ function App() {
       <Container
         maxWidth={false}
         disableGutters
-        sx={{
-          px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 },
-          pt: { xs: 2, sm: 3 },
-          minHeight: '80vh',
-          backgroundColor: '#F8F2E7',
-          overflowX: 'hidden'
-        }}
+      // sx={{
+      //   px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 },
+      //   pt: { xs: 2, sm: 3 },
+      //   minHeight: '80vh',
+      //   backgroundColor: '#F8F2E7',
+      //   overflowX: 'hidden'
+      // }}
       >
         <Outlet />
       </Container>

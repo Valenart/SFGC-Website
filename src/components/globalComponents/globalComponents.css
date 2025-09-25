@@ -19,4 +19,75 @@
 
 #customButton {
     font-family: 'Lato', sans-serif;
+
+}
+
+/* Variáveis de tamanho de fonte para controle responsivo */
+:root {
+    /* Base (tamanhos usados nos componentes.jsx) para telas maiores que 900px */
+    --font-text-base: 1rem;
+    /* Text / Body default */
+    --font-title-base: 2.5rem;
+    /* Title default (used in components) */
+    --font-section-base: 1rem;
+    /* Section type default */
+
+    /* Limites mínimos e máximos para escalonamento */
+    --font-text-min: 0.85rem;
+    /* mínimo visual aceitável para body */
+    --font-title-min: 1.6rem;
+    /* mínimo aceitável para títulos */
+    --font-section-min: 0.9rem;
+    /* mínimo para section-type */
+    --font-title-max: 2.8rem;
+    /* limite superior para títulos */
+}
+
+/* Aplicar as variáveis onde apropriado */
+#text {
+    font-size: var(--font-text-base);
+}
+
+#title {
+    font-size: var(--font-title-base);
+}
+
+#section-type {
+    font-size: var(--font-section-base);
+}
+
+/*
+       Regra responsiva: para telas menores que 900px, reduzir suavemente os tamanhos
+       usando clamp() em conjunto com var() para manter limites mínimo e máximo.
+       A fórmula usa uma combinação linear responsiva com base na largura da viewport. 
+   */
+
+@media (max-width: 900px) {
+
+    /* 
+       Escala suave entre 320px e 900px usando interpolação linear baseada em viewport.
+       Fórmula: size = min + (base - min) * ((100vw - 320px) / (900px - 320px))
+       Implementada com calc() dentro do clamp() para manter limites. 
+    */
+
+    /* Body / Text */
+    #text {
+        font-size: clamp(var(--font-text-min),
+                calc(var(--font-text-min) + (calc(var(--font-text-base) - var(--font-text-min)) * ((100vw - 320px) / 580px))),
+                var(--font-text-base));
+    }
+
+    /* Section type */
+    #section-type {
+        font-size: clamp(var(--font-section-min),
+                calc(var(--font-section-min) + (calc(var(--font-section-base) - var(--font-section-min)) * ((100vw - 320px) / 580px))),
+                var(--font-section-base));
+    }
+
+    /* Title */
+    #title {
+        font-size: clamp(var(--font-title-min),
+                calc(var(--font-title-min) + (calc(var(--font-title-base) - var(--font-title-min)) * ((100vw - 320px) / 580px))),
+                var(--font-title-base));
+    }
 }

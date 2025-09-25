@@ -1,0 +1,12 @@
+#LocationSection,
+#HistoriaSection,
+#ContatoSection,
+#NoticiaSection,
+#ServicosSection {
+    @media (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}

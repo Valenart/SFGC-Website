@@ -6,6 +6,7 @@ const COLOR_PAPER = '#d9d9d9';
 import React from 'react';
 import { Box, Grid, Paper } from '@mui/material';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
+import './homeComponents.css';
 
 // Componentes reutilizáveis para estilizações
 const SectionPaper = ({ height = 260 }) => (
@@ -26,15 +27,15 @@ const SectionText = ({ children }) => (
 
 export default function LocationSection() {
     return (
-        <Box sx={{ minHeight: '100vh', py: { xs: 4, md: 8 } }}>
-            <Grid container spacing={6} justifyContent="center" alignItems="center" sx={{ maxWidth: 1400, mx: 'auto' }}>
+        <Box id="LocationSection" sx={{ minHeight: '100vh', py: { xs: 4, md: 8 }, px: 0 }}>
+            <Grid container spacing={6} justifyContent="center" alignItems="center" sx={{ maxWidth: "100vw", mx: 'auto', px: 0, '& > .MuiGrid-item': { pl: 0 } }}>
 
                 {/* Localização */}
 
                 <Grid item xs={12} md={6}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <SectionTitle> LOCALIZAÇÃO </SectionTitle>
-                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="2.2rem">
+                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="2.5rem">
                             O MELHOR DO GOLF<br />EM OSASCO
                         </Title>
                         <SectionText>
@@ -48,7 +49,7 @@ export default function LocationSection() {
                 <Grid item xs={12} md={6}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
                         <SectionTitle> NOSSO MAPA </SectionTitle>
-                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="2.2rem">
+                        <Title color={COLOR_DARK} fontFamily="inherit" fontSize="2.5rem">
                             VISUALIZE O MAPA DO<br />SÃO FRANCISCO GOLF CLUB
                         </Title>
                         <SectionText>

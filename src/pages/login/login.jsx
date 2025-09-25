@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Box, Button, TextField, Paper, InputAdornment, IconButton, Checkbox, FormControlLabel, Grid } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Title, Text } from '../../components/globalComponents/globalcomponents';
+import { Title, Text, CustomButton } from '../../components/globalComponents/globalcomponents';
 import { useTheme } from '@mui/material/styles';
+
+const COLOR_PRIMARY = '#B58017';
 
 export default function Login() {
   const theme = useTheme();
@@ -24,7 +26,7 @@ export default function Login() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', width: '100vw', bgcolor: theme.palette.background.default }}>
+    <Box sx={{ minHeight: '100vh', width: '100vw' }}>
       <Grid container sx={{ minHeight: '100vh' }}>
         {/* Imagem à esquerda */}
         <Grid
@@ -40,10 +42,10 @@ export default function Login() {
           }}
         >
           <Box sx={{ position: 'absolute', left: 0, bottom: 40, px: 6 }}>
-            <Title color="#fff" fontFamily="inherit" sx={{ mb: 0 }}>
+            <Title color="#fff" fontFamily="inherit" fontSize="4rem">
               ONDE A TRADIÇÃO<br />ENCONTRA A NATUREZA.
             </Title>
-            <Text color="#fff" fontFamily="inherit" fontSize="0.85rem" sx={{ mt: 2 }}>
+            <Text color="#fff" fontFamily="inherit" fontSize="1rem" >
               © 2025 São Francisco Golf Club. Todos os direitos reservados.
             </Text>
           </Box>
@@ -55,7 +57,7 @@ export default function Login() {
           xs={12}
           md={4}
           sx={{
-            bgcolor: 'rgba(11,48,13,0.95)',
+            bgcolor: '#0B300D99',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -74,68 +76,78 @@ export default function Login() {
               alignItems: 'center',
             }}
           >
-            <Title color="#fff" fontFamily="inherit" fontSize="1.5rem" sx={{ mb: 1, textAlign: 'center', letterSpacing: 1 }}>
+            <Title color="#fff" fontFamily="inherit" fontSize="2rem">
               São Francisco Golf Club
             </Title>
-            <Text fontFamily="inherit" fontSize="1rem" sx={{ mb: 3, textAlign: 'center', letterSpacing: 1, color: "#fff" }}>
+            <Text
+              fontFamily="inherit"
+              fontSize="1rem"
+              fontWeight="600"
+            >
               ÁREA EXCLUSIVA PARA FUNCIONÁRIOS
             </Text>
-            <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <TextField
-                label="Email ou Usuário"
-                name="username"
-                type="text"
-                value={form.username}
-                onChange={handleChange}
-                required
-                fullWidth
-                InputLabelProps={{
-                  sx: {
-                    color: '#fff',
-                    '&.Mui-focused': { color: '#fff' },
-                  },
-                }}
-                InputProps={{
-                  sx: {
-                    color: '#fff',
-                    bgcolor: 'transparent',
-                    '& .MuiOutlinedInput-notchedOutline': { borderColor: '#fff' },
-                    '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: /*theme.palette.primary.main*/ '#FFF' },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: /*theme.palette.primary.main*/ '#FFF' },
-                  },
-                }}
-              />
-              <TextField
-                label="Senha"
-                name="password"
-                type={showPassword ? 'text' : 'password'}
-                value={form.password}
-                onChange={handleChange}
-                required
-                fullWidth
-                InputLabelProps={{
-                  sx: {
-                    color: '#fff',
-                    '&.Mui-focused': { color: '#fff' },
-                  },
-                }}
-                InputProps={{
-                  sx: {
-                    color: '#fff',
-                    bgcolor: 'transparent',
-                    '& .MuiOutlinedInput-notchedOutline': { borderColor: '#fff' },
-                    '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: theme.palette.primary.main },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: theme.palette.primary.main },
-                  },
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton onClick={handleClickShowPassword} edge="end" sx={{ color: '#fff' }}>
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
+            <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <TextField
+                  label="Email ou Usuário"
+                  placeholder='Email ou Usuário'
+                  name="username"
+                  type="text"
+                  value={form.username}
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                  InputLabelProps={{
+                    sx: {
+                      color: '#fff',
+                      '&.Mui-focused': { color: '#fff' },
+                    },
+                  }}
+                  InputProps={{
+                    sx: {
+                      color: '#fff',
+                      bgcolor: 'transparent',
+                      '& .MuiOutlinedInput-notchedOutline': { borderColor: '#FFFFFF88' },
+                      '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#FFF' },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#FFF' },
+                    },
+                  }}
+                />
+
+                <TextField
+                  label="Senha"
+                  placeholder='Senha'
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={form.password}
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                  InputLabelProps={{
+                    sx: {
+                      color: '#fff',
+                      '&.Mui-focused': { color: '#fff' },
+                    },
+                  }}
+                  InputProps={{
+                    sx: {
+                      color: '#fff',
+                      bgcolor: 'transparent',
+                      '& .MuiOutlinedInput-notchedOutline': { borderColor: '#FFFFFF88' },
+                      '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#FFF' },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#FFF' },
+                    },
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={handleClickShowPassword} edge="end" sx={{ color: '#fff' }}>
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Box>
+
               <FormControlLabel
                 control={
                   <Checkbox
@@ -153,24 +165,17 @@ export default function Login() {
                     Manter-me conectado
                   </Text>
                 }
-                sx={{ alignItems: 'center', mb: 1 }}
+                sx={{ alignItems: 'center' }}
               />
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                sx={{
-                  borderRadius: 0,
-                  py: 1.5,
-                  fontWeight: 700,
-                  fontFamily: 'inherit',
-                  fontSize: '1rem',
-                  letterSpacing: 1,
-                }}
-                fullWidth
+              <CustomButton
+                backgroundColor={COLOR_PRIMARY}
+                fontFamily="inherit"
+                fontSize="1rem"
+                padding="10px 24px"
+                sx={{ color: '#fff', borderRadius: 0, mt: 1, fontWeight: 700, boxShadow: 'none', '&:hover': { backgroundColor: '#a87618ff' } }}
               >
                 ENTRAR
-              </Button>
+              </CustomButton>
             </Box>
           </Box>
         </Grid>

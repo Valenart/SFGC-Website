@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
+import './homeComponents.css';
 
 // Paleta de cores centralizada
 const COLOR_PRIMARY = '#B58017';
@@ -16,7 +17,7 @@ export default function ServicosSection() {
     return (
 
         <Box sx={{ py: { xs: 4, md: 8 }, px: { xs: 0, md: 0 } }}>
-            <Grid container spacing={4} alignItems="flex-start" justifyContent="center" sx={{ maxWidth: 1400, mx: 'auto' }}>
+            <Grid id="ServicosSection" container spacing={4} alignItems="flex-start" justifyContent="center" sx={{ maxWidth: 1400, mx: 'auto' }}>
                 {/* Texto */}
                 <Grid item xs={12} md={6}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
@@ -24,7 +25,7 @@ export default function ServicosSection() {
                             SERVIÇOS
                         </SectionType>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
-                            <Title color={COLOR_DARK} fontFamily="inherit" fontSize="2.2rem">
+                            <Title color={COLOR_DARK} fontFamily="inherit" fontSize="2.5rem" >
                                 SERVIÇOS PARA SUA<br />MELHOR EXPERIÊNCIA
                             </Title>
                             {/* <Stack direction="row" spacing={0.5} sx={{ mb: 1 }}>

@@ -1,20 +1,18 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
+import './homeComponents.css';
 
 const COLOR_PRIMARY = '#fff';
 const COLOR_BG = '#263126';
 
 export default function NoticiaSection() {
     return (
-        <Box
+        <Box id="NoticiaSection"
             sx={{
                 width: '100vw', // Corrigido de '100vw' para '100%'
                 position: 'relative',
                 bgcolor: COLOR_BG,
-                minHeight: { xs: 500, md: 600 },
-                pb: { xs: 6, md: 10 },
-                pt: { xs: 6, md: 8 },
                 backgroundImage: 'url(/bg-news.jpg)', // coloque sua imagem em public/bg-news.jpg
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -33,16 +31,16 @@ export default function NoticiaSection() {
                     </Text>
                 </Box>
 
-                <Grid container spacing={4} alignItems="center" sx={{ mt: 2 }}>
+                <Grid container alignItems="center" >
                     {[1, 2, 3].map((i) => (
                         <Grid item xs={12} md={4} key={i}>
                             <Box
                                 sx={{
-                                    width: '80%',
+                                    width: '300px',
                                     height: { xs: 220, md: 320 },
                                     bgcolor: '#bdbdbd',
                                     boxShadow: 2,
-                                    mx: 'auto',
+
                                 }}
                             />
                         </Grid>

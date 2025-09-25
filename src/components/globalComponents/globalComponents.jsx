@@ -8,45 +8,83 @@ const COLOR_DARK = '#20491A';
 const COLOR_PAPER = '#d9d9d9';*/
 
 /* COMPONENTE DE TEXTO DE TIPO DE SEÇÃO */
-export const SectionType = ({ children, color, fontFamily, fontSize, ...rest }) => {
+export const SectionType = ({ children, color, fontFamily, fontSize, fontWeight }) => {
     return (
         <Typography
             variant="h2"
             sx={{
                 color: color,
                 fontFamily: fontFamily,
-                fontSize: fontSize
+                /* responsive font-size: use provided fontSize as base on md+, and a gentle clamp on xs */
+                fontSize: {
+                    xs: fontSize
+                        ? `clamp(var(--font-section-min), calc(0.95rem + 0.6vw), ${fontSize})`
+                        : `clamp(var(--font-section-min), calc(0.95rem + 0.6vw), 1rem)`,
+                    md: fontSize || '1rem'
+                },
+                fontWeight: fontWeight
             }}
             id="section-type"
+            style={{
+                fontSize: (typeof window !== 'undefined' && window.innerWidth < 900)
+                    ? (fontSize ? `clamp(var(--font-section-min), calc(0.95rem + 0.6vw), ${fontSize})` : `clamp(var(--font-section-min), calc(0.95rem + 0.6vw), 1rem)`)
+                    : (fontSize || '1rem')
+            }}
         >
-            — {children}
+            {children}
         </Typography>
     );
 }
 
 /* COMPONENTE DE TÍTULO DE SEÇÃO */
-export const Title = ({ children, color = '#FFF', fontFamily, fontSize, ...rest }) => (
+export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeight }) => (
     <Typography
         variant="h1"
         sx={{
             color: color,
-            fontSize: fontSize,
+            /* responsive title sizing: base on md+, clamp on xs to avoid shrinking too much */
+            fontSize: {
+                xs: fontSize
+                    ? `clamp(var(--font-title-min), calc(1.6rem + 1vw), ${fontSize})`
+                    : `clamp(var(--font-title-min), calc(1.6rem + 1vw), 2.5rem)`,
+                md: fontSize || '2.5rem'
+            },
             fontFamily: fontFamily,
+            fontWeight: fontWeight,
             letterSpacing: 1,
             mb: 1
         }}
         id="title"
+        style={{
+            fontSize: (typeof window !== 'undefined' && window.innerWidth < 900)
+                ? (fontSize ? `clamp(var(--font-title-min), calc(1.6rem + 1vw), ${fontSize})` : `clamp(var(--font-title-min), calc(1.6rem + 1vw), 2.5rem)`)
+                : (fontSize || '2.5rem')
+        }}
     >
         {children}
     </Typography>
 );
 
 /* COMPONENTE DE TEXTO DE SEÇÃO */
-export const Text = ({ children, color, fontFamily, fontSize = '1rem', ...rest }) => (
+export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight }) => (
     <Typography
         variant="body1"
-        sx={{ color: color, fontFamily: fontFamily, fontSize: fontSize }}
+        sx={{
+            color: color,
+            fontFamily: fontFamily,
+            /* responsive body text: gentle clamp on small screens */
+            fontSize: {
+                xs: `clamp(var(--font-text-min), calc(0.9rem + 0.4vw), ${fontSize})`,
+                md: fontSize
+            },
+            fontWeight: fontWeight
+        }}
         id="text"
+        style={{
+            fontSize: (typeof window !== 'undefined' && window.innerWidth < 900)
+                ? `clamp(var(--font-text-min), calc(0.9rem + 0.4vw), ${fontSize})`
+                : fontSize
+        }}
     >
         {children}
     </Typography>
