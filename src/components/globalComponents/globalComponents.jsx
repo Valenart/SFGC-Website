@@ -11,7 +11,7 @@ const COLOR_PAPER = '#d9d9d9';*/
 
 export const Logo = ({ children, fontSize }) => {
     return (
-        <Typography variant="h3" color="#fff" id="Logo" sx={{ fontSize: fontSize }}>
+        <Typography variant="h3" color="#fff" id="Logo" component={Link} href="/" sx={{ fontSize: fontSize, textDecoration: 'none' }}>
             {children}
         </Typography>)
 }
