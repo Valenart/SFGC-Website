@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Button, TextField, Paper, InputAdornment, IconButton, Checkbox, FormControlLabel, Grid } from '@mui/material';
+import { Box, Button, TextField, Paper, InputAdornment, IconButton, Checkbox, FormControlLabel, Grid, Snackbar, Alert } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Title, Text, CustomButton } from '../../components/globalComponents/globalcomponents';
+import { Title, Text, CustomButton, Logo } from '../../components/globalComponents/globalcomponents';
 import { useTheme } from '@mui/material/styles';
+import bgLogin from '../../../public/GolfField1.jpg'
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const COLOR_PRIMARY = '#B58017';
 
@@ -11,6 +13,17 @@ export default function Login() {
   const theme = useTheme();
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({ username: '', password: '', keepConnected: false });
+
+  const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+
+  // snackbar and submission state
+  const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'info' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') return;
+    setSnackbar((s) => ({ ...s, open: false }));
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -21,13 +34,32 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Adicione aqui a lógica de autenticação
-    alert('Login enviado!');
+
+    // validação simples
+    if (!form.username || !form.password) {
+      setSnackbar({ open: true, message: 'Preencha usuário e senha.', severity: 'warning' });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Simula requisição de autenticação (substitua por fetch/axios real)
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSnackbar({ open: true, message: 'Login enviado com sucesso!', severity: 'success' });
+      // aqui você pode redirecionar ou limpar o formulário
+    }, 900);
   };
 
   return (
     <Box sx={{ minHeight: '100vh', width: '100vw' }}>
-      <Grid container sx={{ minHeight: '100vh' }}>
+      <Grid container sx={{
+        minHeight: '100vh', flexWrap: { md: 'nowrap' }, backgroundImage: `url(${bgLogin})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative',
+      }}>
         {/* Imagem à esquerda */}
         <Grid
           item
@@ -35,13 +67,12 @@ export default function Login() {
           md={8}
           sx={{
             display: { xs: 'none', md: 'block' },
-            backgroundImage: 'url(/bg-login.jpg)', // coloque sua imagem em public/bg-login.jpg
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
             position: 'relative',
+            minWidth: 0,
+            flexGrow: 1,
           }}
         >
-          <Box sx={{ position: 'absolute', left: 0, bottom: 40, px: 6 }}>
+          <Box sx={{ position: 'absolute', left: 0, bottom: 40, px: 6, display: { xs: 'none', lg: 'block' } }}>
             <Title color="#fff" fontFamily="inherit" fontSize="4rem">
               ONDE A TRADIÇÃO<br />ENCONTRA A NATUREZA.
             </Title>
@@ -57,10 +88,11 @@ export default function Login() {
           xs={12}
           md={4}
           sx={{
-            bgcolor: '#0B300D99',
+            bgcolor: { xs: '#0B300D99', md: '#0B300DDD' },
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            minWidth: { md: '500px' },
             minHeight: '100vh',
             position: 'relative',
           }}
@@ -76,26 +108,29 @@ export default function Login() {
               alignItems: 'center',
             }}
           >
-            <Title color="#fff" fontFamily="inherit" fontSize="2rem">
+            <Logo color="#fff" fontFamily="inherit" fontSize="2rem">
               São Francisco Golf Club
-            </Title>
+            </Logo>
             <Text
               fontFamily="inherit"
               fontSize="1rem"
               fontWeight="600"
+              padding='15px'
             >
               ÁREA EXCLUSIVA PARA FUNCIONÁRIOS
             </Text>
             <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <TextField
-                  label="Email ou Usuário"
+                  label={isMdUp ? "Email ou Usuário" : ''}
                   placeholder='Email ou Usuário'
                   name="username"
                   type="text"
                   value={form.username}
                   onChange={handleChange}
                   required
+                  onInvalid={(e) => e.target.setCustomValidity('Por favor informe seu email ou usuário')}
+                  onInput={(e) => e.target.setCustomValidity('')}
                   fullWidth
                   InputLabelProps={{
                     sx: {
@@ -115,13 +150,15 @@ export default function Login() {
                 />
 
                 <TextField
-                  label="Senha"
+                  label={isMdUp ? "Senha" : ''}
                   placeholder='Senha'
                   name="password"
                   type={showPassword ? 'text' : 'password'}
                   value={form.password}
                   onChange={handleChange}
                   required
+                  onInvalid={(e) => e.target.setCustomValidity('Por favor informe sua senha')}
+                  onInput={(e) => e.target.setCustomValidity('')}
                   fullWidth
                   InputLabelProps={{
                     sx: {
@@ -168,17 +205,24 @@ export default function Login() {
                 sx={{ alignItems: 'center' }}
               />
               <CustomButton
+                type="submit"
                 backgroundColor={COLOR_PRIMARY}
                 fontFamily="inherit"
                 fontSize="1rem"
                 padding="10px 24px"
+                disabled={isSubmitting}
                 sx={{ color: '#fff', borderRadius: 0, mt: 1, fontWeight: 700, boxShadow: 'none', '&:hover': { backgroundColor: '#a87618ff' } }}
               >
-                ENTRAR
+                {isSubmitting ? 'ENVIANDO...' : 'ENTRAR'}
               </CustomButton>
             </Box>
           </Box>
         </Grid>
+        <Snackbar open={snackbar.open} autoHideDuration={4000} onClose={handleCloseSnackbar} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+          <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: '100%' }}>
+            {snackbar.message}
+          </Alert>
+        </Snackbar>
       </Grid>
     </Box>
   );

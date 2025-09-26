@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
+import bgNoticia from '../../../assets/Login/pexels-myersmc16-919335.jpg';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
 import './homeComponents.css';
 
@@ -10,12 +11,12 @@ export default function NoticiaSection() {
     return (
         <Box id="NoticiaSection"
             sx={{
-                width: '100vw', // Corrigido de '100vw' para '100%'
+                width: '100%',
                 position: 'relative',
-                bgcolor: COLOR_BG,
-                backgroundImage: 'url(/bg-news.jpg)', // coloque sua imagem em public/bg-news.jpg
+                backgroundImage: `url(${bgNoticia})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
             }}
         >
             <Box >

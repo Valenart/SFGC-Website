@@ -8,6 +8,14 @@ const COLOR_DARK = '#20491A';
 const COLOR_PAPER = '#d9d9d9';*/
 
 /* COMPONENTE DE TEXTO DE TIPO DE SEÇÃO */
+
+export const Logo = ({ children, fontSize }) => {
+    return (
+        <Typography variant="h3" color="#fff" id="Logo" sx={{ fontSize: fontSize }}>
+            {children}
+        </Typography>)
+}
+
 export const SectionType = ({ children, color, fontFamily, fontSize, fontWeight }) => {
     return (
         <Typography
@@ -37,7 +45,7 @@ export const SectionType = ({ children, color, fontFamily, fontSize, fontWeight 
 }
 
 /* COMPONENTE DE TÍTULO DE SEÇÃO */
-export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeight }) => (
+export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeight, padding }) => (
     <Typography
         variant="h1"
         sx={{
@@ -49,6 +57,7 @@ export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeig
                     : `clamp(var(--font-title-min), calc(1.6rem + 1vw), 2.5rem)`,
                 md: fontSize || '2.5rem'
             },
+
             fontFamily: fontFamily,
             fontWeight: fontWeight,
             letterSpacing: 1,
@@ -66,7 +75,7 @@ export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeig
 );
 
 /* COMPONENTE DE TEXTO DE SEÇÃO */
-export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight }) => (
+export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight, padding }) => (
     <Typography
         variant="body1"
         sx={{
@@ -77,7 +86,8 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
                 xs: `clamp(var(--font-text-min), calc(0.9rem + 0.4vw), ${fontSize})`,
                 md: fontSize
             },
-            fontWeight: fontWeight
+            fontWeight: fontWeight,
+            paddingBlock: padding,
         }}
         id="text"
         style={{
@@ -92,13 +102,14 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
 
 
 /* COMPONENTE DE BOTÃO*/
-export const CustomButton = ({ children, color = "primary", fontFamily, fontSize, endIcon, padding, ...rest }) => {
+export const CustomButton = ({ children, color = "primary", fontFamily, fontSize, endIcon, padding, onClick, ...rest }) => {
     return (
         <Button
             variant="contained"
             color={color}
             sx={{ fontFamily: fontFamily, fontSize: fontSize, borderRadius: 0, padding: padding }}
             endIcon={endIcon}
+            onClick={onClick}
             id="customButton"
             {...rest}
         >
