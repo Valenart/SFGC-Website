@@ -4,14 +4,16 @@ import LocationSection from "./homeComponents/location.jsx";
 import ServicosSection from "./homeComponents/servicos.jsx";
 import NoticiaSection from "./homeComponents/noticia.jsx";
 
+import { Box } from "@mui/material";
+
 export default function Home() {
     return (
         <>
             <LocationSection />
-            <ServicosSection />
+            {/* <ServicosSection />
             <HistoriaSection />
             <NoticiaSection />
-            <ContatoSection />
+            <ContatoSection /> */}
         </>
     )
 }

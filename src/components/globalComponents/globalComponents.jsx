@@ -54,7 +54,7 @@ export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeig
             fontSize: {
                 xs: fontSize
                     ? `clamp(var(--font-title-min), calc(1.6rem + 1vw), ${fontSize})`
-                    : `clamp(var(--font-title-min), calc(1.6rem + 1vw), 2.5rem)`,
+                    : `clamp(var(--font-title-min), calc(1.6rem + 1vw), 2rem)`,
                 md: fontSize || '2.5rem'
             },
 

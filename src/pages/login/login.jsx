@@ -21,7 +21,7 @@ import { useTheme } from '@mui/material/styles';
 import { Title, Text, CustomButton, Logo } from '../../components/globalComponents/globalcomponents';
 
 /* PHOTOS IMPORT */
-import bgLogin from '../../../public/GolfField1.jpg';
+import bgLogin from '/src/assets/Login/GolfField1.jpg';
 
 const COLOR_PRIMARY = '#B58017';
 
