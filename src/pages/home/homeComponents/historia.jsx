@@ -26,6 +26,8 @@ export default function HistoriaSection() {
 				}}
 
 			>
+				{/* NOTE: spacing={4} adiciona gap entre Grid items; MUI aplica margin negativa no container e padding em cada item.
+					Se estiver vendo padding-left:32px, é provavelmente gerado por esse spacing. Ajuste ou remova se necessário. */}
 				<Grid container spacing={4} alignItems="center" justifyContent="center">
 					{/* Imagem/Futuro slider */}
 					<Grid item xs={12} md={6}>

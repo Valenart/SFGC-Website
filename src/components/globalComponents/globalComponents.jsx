@@ -55,7 +55,7 @@ export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeig
                 xs: fontSize
                     ? `clamp(var(--font-title-min), calc(1.6rem + 1vw), ${fontSize})`
                     : `clamp(var(--font-title-min), calc(1.6rem + 1vw), 2rem)`,
-                md: fontSize || '2.5rem'
+                md: fontSize ? fontSize : '2.5rem'
             },
 
             fontFamily: fontFamily,
@@ -102,7 +102,7 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
 
 
 /* COMPONENTE DE BOTÃO*/
-export const CustomButton = ({ children, color = "primary", fontFamily, fontSize, endIcon, padding, onClick, ...rest }) => {
+export const CustomButton = ({ children, color = "primary", fontFamily, fontSize, endIcon, padding, onClick, download, ...rest }) => {
     return (
         <Button
             variant="contained"
@@ -110,6 +110,7 @@ export const CustomButton = ({ children, color = "primary", fontFamily, fontSize
             sx={{ fontFamily: fontFamily, fontSize: fontSize, borderRadius: 0, padding: padding }}
             endIcon={endIcon}
             onClick={onClick}
+            download={download}
             id="customButton"
             {...rest}
         >

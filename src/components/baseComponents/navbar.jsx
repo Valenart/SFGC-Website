@@ -43,7 +43,7 @@ export default function Navbar({ handleClickMenu }) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
                         Menu
                     </Typography>
                     <IconButton>

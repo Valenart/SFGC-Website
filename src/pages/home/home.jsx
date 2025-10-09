@@ -10,10 +10,10 @@ export default function Home() {
     return (
         <>
             <LocationSection />
-            {/* <ServicosSection />
+            <ServicosSection />
             <HistoriaSection />
             <NoticiaSection />
-            <ContatoSection /> */}
+            <ContatoSection />
         </>
     )
 }
