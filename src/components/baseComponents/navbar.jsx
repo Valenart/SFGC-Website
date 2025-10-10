@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import { Person, Phone } from '@mui/icons-material';
 
+import logoSFGC from '/src/assets/GlobalComponents/Navbar/logoSFGC.png'
 
 
 export default function Navbar({ handleClickMenu }) {
@@ -33,25 +34,42 @@ export default function Navbar({ handleClickMenu }) {
         <AppBar position="static">
             <Container maxWidth={false} disableGutters sx={{ px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20, backgroundColor: '#0B300D', } }}>
                 <Toolbar>
-                    <IconButton
-                        size="medium"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                        onClick={handleClickMenu}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
-                        Menu
-                    </Typography>
-                    <IconButton>
-                        <Phone sx={{ color: 'white' }} />
-                    </IconButton>
-                    <IconButton onClick={handlePersonClick}>
-                        <Person sx={{ color: 'white' }} />
-                    </IconButton>
+                    {/* left controls */}
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flex: 1 }}>
+                        <IconButton
+                            size="medium"
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            sx={{ mr: 0 }}
+                            onClick={handleClickMenu}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" component="div" sx={{ display: { xs: 'none', md: 'block' } }}>
+                            Menu
+                        </Typography>
+                    </Box>
+
+                    {/* center logo */}
+                    <Box component={Link} to="/" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 0 }}>
+                        <Box
+                            component="img"
+                            src={logoSFGC}
+                            alt="Logo São Francisco Golf Club"
+                            sx={{ width: { xs: '160px', md: '200px', lg: '220px' }, height: 'auto', objectFit: 'cover', boxShadow: 'none' }}
+                        />
+                    </Box>
+
+                    {/* right controls */}
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, justifyContent: 'flex-end', flex: 1 }}>
+                        <IconButton>
+                            <Phone sx={{ color: 'white' }} />
+                        </IconButton>
+                        <IconButton onClick={handlePersonClick}>
+                            <Person sx={{ color: 'white' }} />
+                        </IconButton>
+                    </Box>
                     <Popover
                         anchorEl={anchorEl}
                         anchorOrigin={{

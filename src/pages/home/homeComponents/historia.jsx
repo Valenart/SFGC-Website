@@ -12,7 +12,7 @@ export default function HistoriaSection() {
 		<Box
 			sx={{
 				bgcolor: COLOR_BG,
-				width: '100%',
+				width: '100vw',
 				py: { xs: 4 },
 				overflowX: 'hidden',
 			}}
@@ -21,23 +21,20 @@ export default function HistoriaSection() {
 				id="HistoriaSection"
 				sx={{
 					px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 },
-					maxWidth: '1920px',
 					mx: 'auto',
 				}}
 
 			>
-				{/* NOTE: spacing={4} adiciona gap entre Grid items; MUI aplica margin negativa no container e padding em cada item.
-					Se estiver vendo padding-left:32px, é provavelmente gerado por esse spacing. Ajuste ou remova se necessário. */}
-				<Grid container spacing={4} alignItems="center" justifyContent="center">
+				<Grid container alignItems="center" justifyContent="center" sx={{ display: 'flex', width: '80vw', alignItems: { xs: 'center', md: 'flex-start' } }}>
 					{/* Imagem/Futuro slider */}
-					<Grid item xs={12} md={6}>
-						<Box sx={{ border: `4px solid ${COLOR_PRIMARY}`, height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'transparent' }}>
+					<Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+						<Box sx={{ border: `4px solid ${COLOR_PRIMARY}`, height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'transparent', width: { xs: '80%', md: '100%' } }}>
 							<Box sx={{ width: '90%', height: '90%', bgcolor: '#bdbdbd' }} />
 						</Box>
 					</Grid>
 					{/* Texto */}
 					<Grid item xs={12} md={6}>
-						<Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
+						<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, gap: 2, height: '100%' }}>
 							<SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1rem">
 								HISTÓRIA
 							</SectionType>
@@ -48,10 +45,8 @@ export default function HistoriaSection() {
 								O São Francisco Golf Club foi fundado na década de 1930 pelo <span style={{ color: COLOR_PRIMARY }}>Conde Luiz Eduardo Matarazzo</span>, que desejava expandir o golfe em São Paulo. Inicialmente, ele praticava em um pequeno percurso de três buracos, onde hoje está o Shopping Iguatemi. Em 1937, foram concluídos os primeiros nove buracos do clube, junto à sua sede, projetada pelo próprio Conde.<br />
 								Desde então, o clube se tornou referência no golfe brasileiro, sendo palco de grandes competições e berço de talentos do esporte. Com um campo desafiador e uma tradição centenária, o São Francisco Golf Club segue promovendo o golfe com excelência.
 							</Text>
-							<Text color="#fff" fontFamily="inherit" fontSize="1rem" style={{ fontWeight: 700 }}>
-								<a href="#" style={{ color: '#fff', textDecoration: 'underline' }}>
-									Veja a história completa do clube e imagens históricas
-								</a>
+							<Text color="#fff" fontFamily="inherit" fontSize="1rem" style={{ fontWeight: 700, color: '#fff', textDecoration: 'underline' }}>
+								Veja a história completa do clube e imagens históricas
 							</Text>
 							<CustomButton
 								backgroundColor={COLOR_PRIMARY}

@@ -21,7 +21,7 @@ export default function Sidebar({ isOpen, onClose }) {
                 }
             }}
         >
-            <Box sx={{ width: 250, p: 2 }} role="presentation" onClick={onClose} onKeyDown={onClose}>
+            <Box sx={{ width: { xs: 200, md: 250 }, p: 2 }} role="presentation" onClick={onClose} onKeyDown={onClose}>
                 <List>
                     {menuItems.map((item) => (
                         <ListItem key={item.label} disablePadding>
