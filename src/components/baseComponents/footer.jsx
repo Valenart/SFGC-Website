@@ -39,33 +39,36 @@ const Footer = () => (
                     </Box>
                 </Grid>
 
-                <Grid item xs={12} md={7}>
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'center' }}>
-                        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'column' }, flexWrap: 'wrap', mb: 2, gap: 4, justifyContent: 'center' }}>
-                            <Box component="nav" sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'row' }, textAlign: 'left', gap: 2, mb: 1 }}>
-                                <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, gap: 1 }}>
-                                    <Typography variant="body2" component="a" href="/" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
-                                        Home
-                                    </Typography>
-                                    <Typography variant="body2" component="a" href="/fotos" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
-                                        Fotos
-                                    </Typography>
-                                </Box>
+                <Grid item xs={12} md={7} sx={{ display: 'flex', justifyContent: 'center' }}>
 
-                                <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, gap: 1 }}>
-                                    <Typography variant="body2" component="a" href="/contato" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
-                                        Contato
-                                    </Typography>
-                                    <Typography variant="body2" component="a" href="/historia" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
-                                        História
-                                    </Typography>
-                                </Box>
+                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'column' }, flexWrap: 'wrap', mb: 2, gap: 4, justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' } }}>
+
+                        <Box component="nav" sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'row' }, textAlign: 'left', gap: 2, mb: 1 }}>
+                            <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, gap: 1 }}>
+                                <Typography variant="body2" component="a" href="/" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                                    Home
+                                </Typography>
+                                <Typography variant="body2" component="a" href="/fotos" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                                    Fotos
+                                </Typography>
                             </Box>
-                            <Typography variant="body2" sx={{ mb: 1 }}>
-                                &copy; {new Date().getFullYear()} São Francisco Golf Club - Todos os direitos reservados.
-                            </Typography>
+
+                            <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, gap: 1 }}>
+                                <Typography variant="body2" component="a" href="/contato" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                                    Contato
+                                </Typography>
+                                <Typography variant="body2" component="a" href="/historia" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                                    História
+                                </Typography>
+                            </Box>
                         </Box>
+
+                        <Typography variant="body2" sx={{ mb: 1 }}>
+                            &copy; {new Date().getFullYear()} São Francisco Golf Club - Todos os direitos reservados.
+                        </Typography>
+
                     </Box>
+
                 </Grid>
             </Grid>
             <Divider sx={{ my: 2, backgroundColor: '#FFFFFF33' }} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
 import { Title, Text, SectionType } from '../../../components/globalComponents/globalcomponents';
+import { MAX_CONTENT_WIDTH, CONTENT_PX } from '../../../styles/layout';
 import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -10,8 +11,8 @@ const COLOR_DARK = '#20491A';
 
 export default function ContatoSection() {
     return (
-        <Box sx={{ py: { xs: 6, md: 8 }, px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 } }}>
-            <Grid container justifyContent="center" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 4, md: 0 }, maxWidth: '80vw', mx: 'auto', alignItems: { xs: 'center', md: "flex-start" } }}>
+        <Box sx={{ py: { xs: 6, md: 8 }, px: CONTENT_PX, maxWidth: '100vw' }}>
+            <Grid container justifyContent="center" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 4, md: 0 }, maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', alignItems: { xs: 'center', md: "flex-start" } }}>
                 {/* Horários */}
                 <Grid item xs={12} md={5}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, justifyContent: 'center' }}>
@@ -77,7 +78,7 @@ export default function ContatoSection() {
                     </Box>
                 </Grid>
                 {/* Nota */}
-                <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
                     <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
                         NOTA: O clube não está disponível para eventos externos como casamentos, aniversários ou outras confraternizações.
                     </Text>

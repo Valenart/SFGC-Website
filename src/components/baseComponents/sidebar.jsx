@@ -3,6 +3,7 @@
 import React from 'react';
 import { Drawer, Box, List, ListItem, ListItemButton, ListItemText, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { SIDEBAR_WIDTH } from '/src/styles/layout.js';
 
 export default function Sidebar({ isOpen, onClose }) {
     const menuItems = [
@@ -21,7 +22,7 @@ export default function Sidebar({ isOpen, onClose }) {
                 }
             }}
         >
-            <Box sx={{ width: { xs: 200, md: 250 }, p: 2 }} role="presentation" onClick={onClose} onKeyDown={onClose}>
+            <Box sx={{ width: SIDEBAR_WIDTH, p: { xs: 2, md: 3 } }} role="presentation" onClick={onClose} onKeyDown={onClose}>
                 <List>
                     {menuItems.map((item) => (
                         <ListItem key={item.label} disablePadding>

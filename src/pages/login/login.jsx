@@ -141,6 +141,7 @@ export default function Login() {
               fontSize="1rem"
               fontWeight="600"
               padding='15px'
+              color="#fff"
             >
               ÁREA EXCLUSIVA PARA FUNCIONÁRIOS
             </Text>

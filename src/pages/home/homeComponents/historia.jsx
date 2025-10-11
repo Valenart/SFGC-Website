@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid } from '@mui/material';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
 import './homeComponents.css';
+import { MAX_CONTENT_WIDTH, CONTENT_PX } from '../../../styles/layout';
 
 const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';
@@ -11,30 +12,41 @@ export default function HistoriaSection() {
 	return (
 		<Box
 			sx={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
 				bgcolor: COLOR_BG,
 				width: '100vw',
-				py: { xs: 4 },
-				overflowX: 'hidden',
+				py: { xs: 4, md: 8 },
+
 			}}
 		>
 			<Box
 				id="HistoriaSection"
 				sx={{
-					px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 },
-					mx: 'auto',
+					display: 'flex',
+					mx: 0,
+					maxWidth: MAX_CONTENT_WIDTH
 				}}
-
 			>
-				<Grid container alignItems="center" justifyContent="center" sx={{ display: 'flex', width: '80vw', alignItems: { xs: 'center', md: 'flex-start' } }}>
+				<Grid container alignItems="center" justifyContent="center" sx={{ mx: 'auto', px: 0, gap: 8 }}>
+
 					{/* Imagem/Futuro slider */}
-					<Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+					<Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 						<Box sx={{ border: `4px solid ${COLOR_PRIMARY}`, height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'transparent', width: { xs: '80%', md: '100%' } }}>
-							<Box sx={{ width: '90%', height: '90%', bgcolor: '#bdbdbd' }} />
+							<Box sx={{
+								width: { xs: '90%', md: '90%' },
+								maxWidth: { xs: '90%', md: 'calc(500px + 20%)', lg: 'calc(500px + 20%)' },
+								height: '90%',
+								bgcolor: '#bdbdbd',
+								padding: { xs: '10px', md: '20px' }
+							}} />
 						</Box>
 					</Grid>
+
 					{/* Texto */}
-					<Grid item xs={12} md={6}>
-						<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, gap: 2, height: '100%' }}>
+					<Grid item xs={12} md={5}>
+						<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, gap: 2, height: '100%', justifyContent: 'center' }}>
 							<SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1rem">
 								HISTÓRIA
 							</SectionType>
@@ -42,10 +54,10 @@ export default function HistoriaSection() {
 								UMA HISTÓRIA CENTENÁRIA
 							</Title>
 							<Text color="#fff" fontFamily="inherit" fontSize="1rem">
-								O São Francisco Golf Club foi fundado na década de 1930 pelo <span style={{ color: COLOR_PRIMARY }}>Conde Luiz Eduardo Matarazzo</span>, que desejava expandir o golfe em São Paulo. Inicialmente, ele praticava em um pequeno percurso de três buracos, onde hoje está o Shopping Iguatemi. Em 1937, foram concluídos os primeiros nove buracos do clube, junto à sua sede, projetada pelo próprio Conde.<br />
-								Desde então, o clube se tornou referência no golfe brasileiro, sendo palco de grandes competições e berço de talentos do esporte. Com um campo desafiador e uma tradição centenária, o São Francisco Golf Club segue promovendo o golfe com excelência.
+								O São Francisco Golf Club foi fundado na década de 1930 pelo <Box component='span' sx={{ color: COLOR_PRIMARY }}>Conde Luiz Eduardo Matarazzo</Box>, que desejava expandir o golfe em São Paulo. Inicialmente, ele praticava em um pequeno percurso de três buracos, onde hoje está o Shopping Iguatemi. Em 1937, foram concluídos os primeiros nove buracos do clube, junto à sua sede, projetada pelo próprio Conde.<br />
+								<Box component='span' sx={{ display: { xs: 'none', md: 'block' } }}>Desde então, o clube se tornou referência no golfe brasileiro, sendo palco de grandes competições e berço de talentos do esporte. Com um campo desafiador e uma tradição centenária, o São Francisco Golf Club segue promovendo o golfe com excelência.</Box>
 							</Text>
-							<Text color="#fff" fontFamily="inherit" fontSize="1rem" style={{ fontWeight: 700, color: '#fff', textDecoration: 'underline' }}>
+							<Text color="#fff" fontFamily="inherit" fontSize="1rem" sx={{ fontWeight: 700, color: '#fff', textDecoration: 'underline' }}>
 								Veja a história completa do clube e imagens históricas
 							</Text>
 							<CustomButton
@@ -55,7 +67,7 @@ export default function HistoriaSection() {
 								padding="10px 24px"
 								sx={{ color: '#fff', width: 'fit-content', borderRadius: 0, mt: 1, fontWeight: 700, boxShadow: 'none', '&:hover': { backgroundColor: '#a06e13' } }}
 							>
-								DESCUBRA A HISTÓRIA&nbsp;{'>'}
+								DESCUBRA A HISTÓRIA
 							</CustomButton>
 						</Box>
 					</Grid>

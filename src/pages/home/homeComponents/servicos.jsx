@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
+import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js';
 import './homeComponents.css';
 
 // Paleta de cores centralizada
@@ -16,10 +17,10 @@ const COLOR_BG = '#f8f6ec';
 export default function ServicosSection() {
     return (
 
-        <Box id="ServicosSection" sx={{ minHeight: '100vh', py: { xs: 4, md: 8 }, px: 0 }}>
-            <Grid container justifyContent="center" sx={{ display: "flex", alignItems: { xs: "center", md: "flex-start" }, justifyContent: "center", maxWidth: "82vw", mx: 'auto' }}>
-                <Grid item xs={12} md={6}>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' }, flexDirection: 'column', gap: 2 }}>
+        <Box id="ServicosSection" sx={{ py: { xs: 4, md: 8 }, px: 0 }}>
+            <Grid container justifyContent="center" sx={{ display: "flex", alignItems: { xs: "center", md: "flex-start" }, justifyContent: "center", maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', gap: 8 }}>
+                <Grid item xs={12} md={5}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' }, flexDirection: 'column', justifyContent: "center", gap: 2 }}>
                         <SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1rem">
                             SERVIÇOS
                         </SectionType>
@@ -34,15 +35,18 @@ export default function ServicosSection() {
                         <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
                             Após a partida, <span style={{ color: COLOR_PRIMARY }}>aproveite nossa lanchonete e restaurante</span>, que disponibilizam um selecionado em horários programados, proporcionando mais conforto e praticidade durante sua estadia no campo.
                         </Text>
-                        <CustomButton
-                            backgroundColor={COLOR_PRIMARY}
-                            fontFamily="inherit"
-                            fontSize="1rem"
-                            padding="10px 24px"
-                            sx={{ color: '#fff', width: 'fit-content', borderRadius: 0, mt: 1, fontWeight: 700, boxShadow: 'none', '&:hover': { backgroundColor: '#a06e13' } }}
-                        >
-                            MAIS INFORMAÇÕES
-                        </CustomButton>
+
+                        <Box sx={{ marginBottom: 1 }}>
+                            <CustomButton
+                                backgroundColor={COLOR_PRIMARY}
+                                fontFamily="inherit"
+                                fontSize="1rem"
+                                padding="10px 24px"
+                                sx={{ color: '#fff', width: 'fit-content', borderRadius: 0, fontWeight: 700, boxShadow: 'none', '&:hover': { backgroundColor: '#a06e13' } }}
+                            >
+                                MAIS INFORMAÇÕES
+                            </CustomButton>
+                        </Box>
                     </Box>
                 </Grid>
 

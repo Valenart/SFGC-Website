@@ -1,8 +1,9 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
-import bgNoticia from '../../../assets/Login/pexels-myersmc16-919335.jpg';
+import bgNoticia from '../../../assets/Home/Noticias/backgroundNoticias.jpg';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
 import './homeComponents.css';
+import { MAX_CONTENT_WIDTH, CONTENT_PX } from '/src/styles/layout.js';
 
 const COLOR_PRIMARY = '#fff';
 const COLOR_BG = '#263126';
@@ -10,19 +11,21 @@ const COLOR_BG = '#263126';
 export default function NoticiaSection() {
     return (
         <Box id="NoticiaSection"
+
             sx={{
-                width: '100%',
+                width: '100vw',
                 position: 'relative',
                 backgroundImage: `url(${bgNoticia})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
+                py: { xs: 4, md: 8 },
             }}
         >
-            <Box >
-                <Box sx={{ display: 'flex', textAlign: 'center', flexDirection: 'column' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', maxWidth: MAX_CONTENT_WIDTH, alignItems: 'center', mx: 'auto' }}>
+                <Box sx={{ display: 'flex', textAlign: 'center', flexDirection: 'column', width: '100%', gap: 2 }}>
                     <SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1rem">
-                        NOTÍCIAS —
+                        NOTÍCIAS
                     </SectionType>
                     <Title color="#fff" fontFamily="inherit" fontSize="2.2rem">
                         TORNEIOS E ATUALIZAÇÕES
@@ -34,14 +37,13 @@ export default function NoticiaSection() {
 
                 <Grid container alignItems="center" >
                     {[1, 2, 3].map((i) => (
-                        <Grid item xs={12} md={4} key={i}>
+                        <Grid item xs={12} md={4} key={i} sx={{ display: 'flex', justifyContent: 'center' }}>
                             <Box
                                 sx={{
-                                    width: '300px',
-                                    height: { xs: 220, md: 320 },
+                                    width: { xs: '90%', md: 300 },
+                                    height: { xs: 220, md: 250 },
                                     bgcolor: '#bdbdbd',
                                     boxShadow: 2,
-
                                 }}
                             />
                         </Grid>

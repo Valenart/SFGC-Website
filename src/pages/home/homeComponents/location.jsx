@@ -6,21 +6,22 @@ const COLOR_PAPER = '#d9d9d9';
 import React from 'react';
 import { Box, Grid, Paper } from '@mui/material';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
+import { MAX_CONTENT_WIDTH, CONTENT_PX } from '/src/styles/layout.js';
 import './homeComponents.css';
+
 import mapaSFGC from '/src/assets/Home/Location/MapaSFGC.png';
 import CampoGolf from '/src/assets/Home/Location/fieldGolf.jpg'
-
-
+import treeImage from '/src/assets/Home/Location/TreeIcon.svg';
+import golfBall from '/src/assets/Home/Location/golfBall.svg'
 
 export default function LocationSection() {
 
     return (
         <Box id="LocationSection" sx={{ minHeight: '100vh', py: { xs: 4, md: 8 }, px: 0 }}>
-            <Grid container spacing={5} justifyContent="center" alignItems="center" sx={{ maxWidth: "80vw", mx: 'auto', px: 0, '& > .MuiGrid-item': { pl: 0 } }}>
+            <Grid container justifyContent="center" alignItems="center" sx={{ maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', gap: 8, px: 0 }}>
 
                 {/* Localização */}
-
-                <Grid container item xs={12} md={12} spacing={2} sx={{ display: 'flex', flexDirection: 'row' }}>
+                <Grid container item xs={12} md={12} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
                     <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box
                             component="img"
@@ -28,7 +29,8 @@ export default function LocationSection() {
                             alt="Mapa do São Francisco Golf Club"
                             loading="lazy"
                             sx={{
-                                width: { xs: '90%', md: '100%', lg: '80%' },
+                                width: { xs: '100%', md: '100%' },
+                                maxWidth: { xs: '90%', md: 'calc(500px + 20%)', lg: 'calc(500px + 20%)' },
                                 height: 'auto',
                                 padding: { xs: '10px', md: '20px' },
                                 border: `4px solid ${COLOR_PRIMARY}`,
@@ -39,8 +41,26 @@ export default function LocationSection() {
                         />
                     </Grid>
 
-                    <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%', justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                            <Box sx={{
+                                display: 'flex', flexDirection: 'column', position: 'relative', '&::before': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    pointerEvents: 'none',
+                                    zIndex: -1,
+                                    backgroundImage: `url(${treeImage})`,
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'contain',
+                                    opacity: 0.2,
+                                    top: { xs: -10, md: '0%' },
+                                    left: { xs: '50%', md: '42vw' },
+                                    transform: { xs: 'translateX(-50%)', md: 'translateX(-180%)' },
+                                    width: { xs: 100, md: 200 },
+                                    height: { xs: 100, md: 200 }
+                                }
+                            }}>
+                            </Box>
                             <SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1.2rem">
                                 LOCALIZAÇÃO
                             </SectionType>
@@ -50,15 +70,32 @@ export default function LocationSection() {
                             <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
                                 O <span style={{ color: COLOR_PRIMARY }}>São Francisco Golf Club</span> está situado em uma das áreas mais nobres de Osasco, sendo o clube de golfe mais próximo do centro de São Paulo. Com fácil acesso, está a poucos minutos do Parque Villa-Lobos e do Shopping União de Osasco, oferecendo conveniência e exclusividade aos seus visitantes.
                             </Text>
-                            {/* Imagem da árvore pode ser posicionada com background ou SVG, aqui é omitido para foco no layout */}
                         </Box>
                     </Grid>
                 </Grid>
 
                 {/* Nosso Mapa */}
-                <Grid container item xs={12} md={12} spacing={2}>
-                    <Grid item xs={12} md={6}>
+                <Grid container item xs={12} md={12} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
+                    <Grid item xs={12} md={5}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%', justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                            <Box sx={{
+                                display: 'flex', flexDirection: 'column', position: 'relative', '&::before': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    pointerEvents: 'none',
+                                    zIndex: -1,
+                                    backgroundImage: `url(${golfBall})`,
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'contain',
+                                    opacity: 0.2,
+                                    top: { xs: 0, md: '20%' },
+                                    left: { xs: '50%', md: '42vw' },
+                                    transform: { xs: 'translateX(-50%)', md: 'translateX(-200%)' },
+                                    width: { xs: 80, md: 160 },
+                                    height: { xs: 80, md: 160 }
+                                }
+                            }}>
+                            </Box>
                             <SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1.2rem" >
                                 NOSSO MAPA
                             </SectionType>
@@ -85,14 +122,15 @@ export default function LocationSection() {
                             </CustomButton>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box
                             component="img"
                             src={mapaSFGC}
                             alt="Mapa do São Francisco Golf Club"
                             loading="lazy"
                             sx={{
-                                width: { xs: '90%', md: '100%', lg: '80%' },
+                                width: { xs: '100%', md: '100%' },
+                                maxWidth: { xs: '90%', md: 'calc(500px + 20%)', lg: 'calc(500px + 20%)' },
                                 height: 'auto',
                                 padding: { xs: '10px', md: '20px' },
                                 border: `4px solid ${COLOR_PRIMARY}`,
