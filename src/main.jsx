@@ -4,8 +4,6 @@ import './index.css';
 import App from './App.jsx';
 import { Navigate, RouterProvider, createBrowserRouter, } from 'react-router-dom';
 
-
-
 import Login from './pages/login/login.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import Home from './pages/home/home.jsx';

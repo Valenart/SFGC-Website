@@ -7,6 +7,9 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
 import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js';
+import AulasImg from '/src/assets/Home/Servicos/Aulas.jpg';
+import GolfBagImg from '/src/assets/Home/Servicos/GolfBag.jpg';
+import GolfCartImg from '/src/assets/Home/Servicos/GolfCart.jpg';
 import './homeComponents.css';
 
 // Paleta de cores centralizada
@@ -64,9 +67,16 @@ export default function ServicosSection() {
                                 650: { slidesPerView: 2 },
                             }}
                         >
-                            {[1, 2, 3].map((i) => (
+                            {[AulasImg, GolfBagImg, GolfCartImg].map((src, i) => (
                                 <SwiperSlide key={i}>
-                                    <Box sx={{ padding: "10px", border: `4px solid ${COLOR_PRIMARY}`, height: 300, bgcolor: '#bdbdbd', border: `4px solid ${COLOR_PRIMARY}` }} />
+                                    <Box sx={{ padding: "6px" }}>
+                                        <Box
+                                            component="img"
+                                            src={src}
+                                            alt={`Serviço ${i + 1}`}
+                                            sx={{ width: '100%', height: 300, objectFit: 'cover', display: 'block', border: `4px solid ${COLOR_PRIMARY}` }}
+                                        />
+                                    </Box>
                                 </SwiperSlide>
                             ))}
                         </Swiper>

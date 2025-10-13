@@ -11,7 +11,7 @@ export default function BackgroundDivider() {
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
                 filter: 'brightness(0.9)',
-                width: '100%',
+                width: '100vw',
                 height: { xs: '200px', md: '400px' },
                 zIndex: 1,
             }}

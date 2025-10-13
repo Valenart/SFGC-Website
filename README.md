@@ -3,8 +3,6 @@
 
 Este repositório contém o frontend do site do São Francisco Golf Club (SFGC). É uma aplicação React criada com Vite e Material UI, com foco em apresentação visual do clube: localização, história, notícias, serviços e contato.
 
-O objetivo aqui é ter uma versão do site que você possa rodar localmente, testar, ajustar responsividade e usar como material para portfólio.
-
 Principais características
 - React + Vite (dev server rápido e build otimizado)
 - Material UI (componentes e sistema de breakpoints)
