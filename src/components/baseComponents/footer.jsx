@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography, Container, Divider, Grid } from '@mui/material';
 
 import MySign from '/src/assets/GlobalComponents/Footer/MySignWhite.png'
+import LogoSFGC from '/src/assets/GlobalComponents/Footer/LogoSFGC.svg'
 
 const Footer = () => (
     <Box
@@ -16,10 +17,10 @@ const Footer = () => (
             bottom: 0,
         }}
     >
-        <Container maxWidth={false} disableGutters sx={{ px: { xs: 1, sm: 2, md: 4, lg: 8, xl: 20 } }}>
+        <Container maxWidth={false} disableGutters sx={{ display: 'flex', flexDirection: 'column', width: '80vw' }} >
             {/* Grid: em xs fica empilhado; em md+ mostra duas colunas (mapa à esquerda, conteúdo à direita) */}
-            <Grid container spacing={0} alignItems="center" justifyContent="center">
-                <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Grid container alignItems="center" justifyContent="center" sx={{ display: 'flex', gap: { sx: 4, md: 0 } }}>
+                <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', mb: { xs: 2, md: 0 } }}>
                         <Box
                             component="iframe"
@@ -29,17 +30,25 @@ const Footer = () => (
                             referrerPolicy="no-referrer-when-downgrade"
                             allowFullScreen
                             sx={{
-                                width: { xs: '80vw', sm: 400, md: 400 },
+                                width: { xs: '80vw', sm: '100%', md: '100%' },
                                 height: { xs: 150, sm: 150, md: 150 },
                                 border: 0,
                                 borderRadius: 0,
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
                             }}
                         />
                     </Box>
                 </Grid>
+                <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Box
+                        component="img"
+                        src={LogoSFGC}
+                        alt="Logo São Francisco Golf Club"
+                        loading="lazy"
+                        sx={{ filter: "opacity(0.8)", width: { xs: '100px', md: '130px', lg: '130px' }, height: 'auto', objectFit: 'cover', boxShadow: 'none' }}
+                    />
+                </Grid>
 
-                <Grid item xs={12} md={7} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
 
                     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'column' }, flexWrap: 'wrap', mb: 2, gap: 4, justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' } }}>
 
@@ -86,7 +95,7 @@ const Footer = () => (
             </Box>
 
         </Container>
-    </Box>
+    </Box >
 );
 
 export default Footer;

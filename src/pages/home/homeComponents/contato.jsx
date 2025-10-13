@@ -1,20 +1,30 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
 import { Title, Text, SectionType } from '../../../components/globalComponents/globalcomponents';
-import { MAX_CONTENT_WIDTH, CONTENT_PX } from '../../../styles/layout';
+import { MAX_CONTENT_WIDTH } from '../../../styles/layout';
 import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
+
+import SedeImagem from '/src/assets/Home/Contato/SedeCampo.jpg';
 
 const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';
 
 export default function ContatoSection() {
     return (
-        <Box sx={{ py: { xs: 6, md: 8 }, px: CONTENT_PX, maxWidth: '100vw' }}>
-            <Grid container justifyContent="center" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 4, md: 0 }, maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', alignItems: { xs: 'center', md: "flex-start" } }}>
+        <Box sx={{ py: { xs: 6, md: 8 }, maxWidth: '100vw' }}>
+            <Grid container justifyContent="center" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 4, md: 0 }, maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', alignItems: { xs: 'center', md: "center" } }}>
                 {/* Horários */}
-                <Grid item xs={12} md={5}>
+                <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box
+                        component="img"
+                        src={SedeImagem}
+                        alt="Imagem de Sede"
+                        sx={{ width: { xs: '80%', md: '80%' }, padding: 1, maxWidth: 'calc(300px + 10vw)', height: 'auto', objectFit: 'cover' }}
+                    />
+                </Grid>
+                <Grid item xs={12} md={4}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, justifyContent: 'center' }}>
                         <SectionType color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem">
                             HORÁRIOS DE FUNCIONAMENTO
@@ -46,7 +56,7 @@ export default function ContatoSection() {
                     </Box>
                 </Grid>
                 {/* Contato */}
-                <Grid item xs={12} md={5} >
+                <Grid item xs={12} md={4} >
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, gap: 2 }}>
                         <SectionType color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem">
                             CONTATO

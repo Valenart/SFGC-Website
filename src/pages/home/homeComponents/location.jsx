@@ -6,7 +6,7 @@ const COLOR_PAPER = '#d9d9d9';
 import React from 'react';
 import { Box, Grid, Paper } from '@mui/material';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
-import { MAX_CONTENT_WIDTH, CONTENT_PX } from '/src/styles/layout.js';
+import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js';
 import './homeComponents.css';
 
 import mapaSFGC from '/src/assets/Home/Location/MapaSFGC.png';

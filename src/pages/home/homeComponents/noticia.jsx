@@ -3,7 +3,7 @@ import { Box, Grid } from '@mui/material';
 import bgNoticia from '../../../assets/Home/Noticias/backgroundNoticias.jpg';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
 import './homeComponents.css';
-import { MAX_CONTENT_WIDTH, CONTENT_PX } from '/src/styles/layout.js';
+import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js';
 
 const COLOR_PRIMARY = '#fff';
 const COLOR_BG = '#263126';
@@ -14,7 +14,6 @@ export default function NoticiaSection() {
 
             sx={{
                 width: '100vw',
-                position: 'relative',
                 backgroundImage: `url(${bgNoticia})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
