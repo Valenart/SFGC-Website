@@ -21,9 +21,9 @@ export default function ServicosSection() {
     return (
 
         <Box id="ServicosSection" sx={{ py: { xs: 4, md: 8 }, px: 0 }}>
-            <Grid container justifyContent="center" sx={{ display: "flex", alignItems: { xs: "center", md: "flex-start" }, justifyContent: "center", maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', gap: 8 }}>
+            <Grid container sx={{ display: "flex", alignItems: { xs: "center", md: "flex-start" }, justifyContent: "center", maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', gap: 8 }}>
                 <Grid item xs={12} md={5}>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' }, flexDirection: 'column', justifyContent: "center", gap: 2 }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' }, flexDirection: 'column', gap: 2 }}>
                         <SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1rem">
                             SERVIÇOS
                         </SectionType>

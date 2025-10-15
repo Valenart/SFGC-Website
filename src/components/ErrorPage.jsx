@@ -2,7 +2,7 @@ import React from 'react';
 import Icon404SmC from '/src/assets/ErrorPage/Icon404smScreen.svg'
 import { Box } from '@mui/material';
 import LogoSFGC from '/src/assets/ErrorPage/LogoSFGCBackground.svg'
-import { Text } from './globalComponents/globalcomponents';
+import { Text } from './globalComponents/globalcomponents.jsx';
 
 export default function ErrorPage() {
     return (
