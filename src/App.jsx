@@ -29,17 +29,18 @@ function App() {
   };
 
   return (
-    <>
+    <Box sx={{ display: 'flex', minHeight: '100vh', flexDirection: 'column' }}>
       <Navbar handleClickMenu={handleSideMenu} />
       <Sidebar isOpen={isOpen} onClose={handleCloseSidebar} />
-      <Container
-        maxWidth={false}
-        disableGutters
-      >
-        <Outlet />
-      </Container>
+
+      <Box component="main" sx={{ flex: 1 }}>
+        <Container maxWidth={false} disableGutters>
+          <Outlet />
+        </Container>
+      </Box>
+
       <Footer />
-    </>
+    </Box>
   );
 }
 

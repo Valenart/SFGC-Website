@@ -21,7 +21,7 @@ export default function ContatoSection() {
                         component="img"
                         src={SedeImagem}
                         alt="Imagem de Sede"
-                        sx={{ width: { xs: '80%', md: '80%' }, padding: 1, maxWidth: 'calc(300px + 10vw)', height: 'auto', objectFit: 'cover' }}
+                        sx={{ width: { xs: '80%', md: '80%' }, padding: 1, maxWidth: 'calc(300px + 10vw)', height: 'auto', objectFit: 'cover', border: `4px solid ${COLOR_PRIMARY}` }}
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>

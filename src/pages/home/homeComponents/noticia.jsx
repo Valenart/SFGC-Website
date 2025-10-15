@@ -34,10 +34,10 @@ export default function NoticiaSection() {
                     </Text>
                 </Box>
 
-                <Grid container alignItems="center" >
+                <Grid container alignItems="center" sx={{ gap: 4, justifyContent: 'center' }}>
                     {[1, 2, 3].map((i) => (
-                        <Grid item xs={12} md={4} key={i} sx={{ display: 'flex', justifyContent: 'center' }}>
-                            <Box
+                        <Grid item xs={12} md={3} key={i} sx={{ display: 'flex', justifyContent: 'center' }}>
+                            <Card
                                 sx={{
                                     width: { xs: '90%', md: 300 },
                                     height: { xs: 220, md: 250 },

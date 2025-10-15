@@ -1,4 +1,4 @@
-import { Typography, Button, Link, Popover } from "@mui/material";
+import { Typography, Button, Link, Card, CardMedia, CardContent } from "@mui/material";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './globalcomponents.css';
 
@@ -75,7 +75,7 @@ export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeig
 );
 
 /* COMPONENTE DE TEXTO DE SEÇÃO */
-export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight, padding }) => (
+export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight, padding, ...rest }) => (
     <Typography
         variant="body1"
         sx={{
@@ -88,6 +88,7 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
             },
             fontWeight: fontWeight,
             paddingBlock: padding,
+            textDecoration: 'none',
         }}
         id="text"
         style={{
@@ -95,6 +96,7 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
                 ? `clamp(var(--font-text-min), calc(0.9rem + 0.4vw), ${fontSize})`
                 : fontSize
         }}
+        {...rest}
     >
         {children}
     </Typography>
@@ -117,4 +119,37 @@ export const CustomButton = ({ children, color = "primary", fontFamily, fontSize
             {children}
         </Button>
     );
+}
+
+export const CustomCard = ({ photo, description, title, datePost, text, colorChip, chipLabel }) => {
+    return (
+        <Card sx={{ backgroundColor: '#fffaf0', boxShadow: '0px 6px 20px rgba(11, 48, 13, 0.25)' }}>
+            <CardMedia
+                component="img"
+                image={photo}
+                alt={description}
+                sx={{ width: '100%', height: 200, objectFit: 'cover' }}
+            />
+            <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 1, alignItems: { xs: 'center', md: 'flex-start' } }}>
+                    <Title
+                        fontSize="1.2rem"
+                        color="#20491A"
+                        fontWeight="700"
+                    >
+                        {title}
+                    </Title>
+                    <Text fontSize="0.8rem" color="#20491A" fontWeight="400">
+                        {datePost}
+                    </Text>
+                </Box>
+
+                <Text fontSize="0.9rem" color="#20491A" fontWeight="400">
+                    {text}
+                </Text>
+
+                <Chip label={chipLabel} color={colorChip} />
+            </CardContent>
+        </Card>
+    )
 }
