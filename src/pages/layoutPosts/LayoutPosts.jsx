@@ -4,7 +4,7 @@ import {
   Dialog, DialogContent, DialogTitle, Box, TextField, Button, Select, MenuItem,
   InputLabel, FormControl, IconButton, Typography, Stack
 } from '@mui/material';
-import { Title, Text } from '../../components/globalComponents/globalcomponents';
+import { Title, Text } from '../../components/globalComponents/globalComponents';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { useTheme } from '@mui/material/styles';
 

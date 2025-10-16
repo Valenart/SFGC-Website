@@ -1,10 +1,19 @@
+/** LIBS **/
 import React from 'react';
+
+/** MUI **/
 import { Box, Grid } from '@mui/material';
-import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
+
+/** CUSTOM COMPONENTS **/
+import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalComponents';
+
+/** ASSETS **/
+import historiaImage from '/src/assets/home/historia/sociosFoto.jpg';
+import LogoSFGC from '/src/assets/baseComponents/footer/logoSFGC.svg';
+
+/** STYLES / TOKENS **/
 import './homeComponents.css';
 import { MAX_CONTENT_WIDTH } from '../../../styles/layout';
-
-import historiaImage from '/src/assets/Home/Historia/SociosFoto.jpg'
 
 const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';
@@ -53,7 +62,23 @@ export default function HistoriaSection() {
 
 					{/* Texto */}
 					<Grid item xs={12} md={5}>
-						<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, gap: 2, height: '100%', justifyContent: 'center' }}>
+						<Box sx={{
+							position: 'relative', display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, gap: 2, height: '100%', justifyContent: 'center', '&::before': {
+								content: '""',
+								position: 'absolute',
+								pointerEvents: 'none',
+								zIndex: 0,
+								backgroundImage: `url(${LogoSFGC})`,
+								backgroundRepeat: 'no-repeat',
+								backgroundSize: 'contain',
+								opacity: 0.12,
+								top: { xs: -10, md: '-10%' },
+								left: { xs: '50%', md: '100%' },
+								transform: { xs: 'translateX(-50%)', md: 'translateX(-100%)' },
+								width: { xs: 120, md: 220 },
+								height: { xs: 120, md: 220 }
+							}
+						}}>
 							<SectionType color={COLOR_PRIMARY} fontFamily="inherit" fontSize="1rem">
 								HISTÓRIA
 							</SectionType>

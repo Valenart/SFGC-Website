@@ -1,11 +1,15 @@
-import { Typography, Button, Link, Card, CardMedia, CardContent } from "@mui/material";
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import './globalcomponents.css';
+/** MUI **/
+import { Typography, Button, Link, Card, CardMedia, CardContent, Box, Chip } from "@mui/material";
+
+/** STYLES **/
+import './globalComponents.css';
 
 // ANOTAÇÃO: cores do tema foram movidas para theme.js
 /*const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';
 const COLOR_PAPER = '#d9d9d9';*/
+
+const COLOR_DARK = '#20491A';
 
 /* COMPONENTE DE TEXTO DE TIPO DE SEÇÃO */
 
@@ -45,11 +49,11 @@ export const SectionType = ({ children, color, fontFamily, fontSize, fontWeight 
 }
 
 /* COMPONENTE DE TÍTULO DE SEÇÃO */
-export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeight, padding }) => (
+export const Title = ({ children, color = '#fff', fontFamily, fontSize, fontWeight, padding }) => (
     <Typography
         variant="h1"
         sx={{
-            color: color,
+            color: color == 'primary' ? COLOR_DARK : color,
             /* responsive title sizing: base on md+, clamp on xs to avoid shrinking too much */
             fontSize: {
                 xs: fontSize
@@ -71,7 +75,7 @@ export const Title = ({ children, color = '#FFF', fontFamily, fontSize, fontWeig
         }}
     >
         {children}
-    </Typography>
+    </Typography >
 );
 
 /* COMPONENTE DE TEXTO DE SEÇÃO */
@@ -89,6 +93,7 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
             fontWeight: fontWeight,
             paddingBlock: padding,
             textDecoration: 'none',
+            textOverflow: 'ellipsis',
         }}
         id="text"
         style={{
@@ -104,12 +109,12 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
 
 
 /* COMPONENTE DE BOTÃO*/
-export const CustomButton = ({ children, color = "primary", fontFamily, fontSize, endIcon, padding, onClick, download, ...rest }) => {
+export const CustomButton = ({ children, color = "primary", fontFamily, fontSize, endIcon, padding, onClick, download, backgroundColor, ...rest }) => {
     return (
         <Button
             variant="contained"
             color={color}
-            sx={{ fontFamily: fontFamily, fontSize: fontSize, borderRadius: 0, padding: padding }}
+            sx={{ fontFamily: fontFamily, fontSize: fontSize, borderRadius: 0, padding: padding, backgroundColor: backgroundColor }}
             endIcon={endIcon}
             onClick={onClick}
             download={download}
@@ -121,34 +126,34 @@ export const CustomButton = ({ children, color = "primary", fontFamily, fontSize
     );
 }
 
-export const CustomCard = ({ photo, description, title, datePost, text, colorChip, chipLabel }) => {
+export const CustomCard = ({ height, photo, descriptionImage = '', title, datePost = '', text, useChip = false, colorChip, chipLabel, }) => {
     return (
-        <Card sx={{ backgroundColor: '#fffaf0', boxShadow: '0px 6px 20px rgba(11, 48, 13, 0.25)' }}>
+        <Card sx={{ backgroundColor: '#fffaf0', boxShadow: '0px 0px 5px rgba(11, 48, 13, 0.2)', width: '100%', height: height, overflow: 'hidden' }}>
             <CardMedia
                 component="img"
                 image={photo}
-                alt={description}
+                alt={descriptionImage}
                 sx={{ width: '100%', height: 200, objectFit: 'cover' }}
             />
             <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 1, alignItems: { xs: 'center', md: 'flex-start' } }}>
-                    <Title
-                        fontSize="1.2rem"
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                    <SectionType
+                        fontSize="1rem"
                         color="#20491A"
                         fontWeight="700"
                     >
                         {title}
-                    </Title>
-                    <Text fontSize="0.8rem" color="#20491A" fontWeight="400">
+                    </SectionType>
+                    <Text fontSize="0.7rem" color="#20491A" fontWeight="400">
                         {datePost}
                     </Text>
                 </Box>
 
-                <Text fontSize="0.9rem" color="#20491A" fontWeight="400">
+                <Text fontSize="0.9rem" color="#000000ff" fontWeight="400">
                     {text}
                 </Text>
 
-                <Chip label={chipLabel} color={colorChip} />
+                {useChip ? <Chip label={chipLabel} color={colorChip} sx={{ borderRadius: 0, width: '30%' }} /> : ''}
             </CardContent>
         </Card>
     )

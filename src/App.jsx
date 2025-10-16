@@ -1,14 +1,17 @@
+/** LIBS **/
 import { useState } from 'react';
-import { Box, Container, Typography, TextField, InputAdornment, OutlinedInput, InputLabel, IconButton, FormControl } from '@mui/material';
+import { Outlet } from 'react-router-dom';
+
+/** MUI **/
+import { Box, Container } from '@mui/material';
+
+/** CUSTOM COMPONENTS **/
 import Navbar from './components/baseComponents/navbar';
 import Sidebar from './components/baseComponents/sidebar';
 import Footer from './components/baseComponents/footer';
-import DeleteIcon from '@mui/icons-material/Delete';
 
+/** STYLES **/
 import './App.css';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-import Login from './pages/login/login';
-import { Outlet } from 'react-router-dom';
 
 
 function App() {

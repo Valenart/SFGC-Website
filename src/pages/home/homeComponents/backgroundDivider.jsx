@@ -1,19 +1,24 @@
-import { Box } from '@mui/material'
-import bgDivider from '/src/assets/GlobalComponents/Home/backgroundDivider.jpg'
+/** MUI **/
+import { Box } from '@mui/material';
+
+/** ASSETS **/
+import bgDivider from '/src/assets/baseComponents/home/backgroundDivider.jpg';
 
 export default function BackgroundDivider() {
     return (
         <Box
+            component="img"
+            src={bgDivider}
+            alt="Imagem decorativa de divisão de seções"
+            loading="lazy"
             sx={{
-                backgroundImage: `url(${bgDivider})`,
-                backgroundAttachment: 'fixed', // efeito parallax
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                filter: 'brightness(0.9)',
-                width: '100vw',
-                height: { xs: '200px', md: '400px' },
+                position: 'block',
                 zIndex: 1,
+                filter: 'brightness(0.9)',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                width: '100%',
+                height: { xs: 200, md: 400 },
             }}
         />
     )

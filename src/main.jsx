@@ -1,17 +1,22 @@
+/** LIBS **/
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
-import { Navigate, RouterProvider, createBrowserRouter, } from 'react-router-dom';
+import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+/** MUI **/
+import { ThemeProvider, CssBaseline } from '@mui/material';
+
+/** CUSTOM COMPONENTS / PAGES **/
+import App from './App.jsx';
 import Login from './pages/login/login.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import Home from './pages/home/home.jsx';
 import Historia from './pages/historia/historiaPage.jsx';
+import Fotos from './pages/fotos/fotos.jsx';
 
-
-import { ThemeProvider, CssBaseline } from '@mui/material';
+/** THEME / STYLES **/
 import theme from './theme';
+import './index.css';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +33,8 @@ const router = createBrowserRouter([
         element: <Historia />
       },
       {
-        // path: '/Fotos',
-        // element: <Fotos/>
+        path: '/Fotos',
+        element: <Fotos />
       },
     ]
   },

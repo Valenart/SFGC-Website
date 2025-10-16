@@ -1,8 +1,15 @@
+/** LIBS **/
 import React from 'react';
-import Icon404SmC from '/src/assets/ErrorPage/Icon404smScreen.svg'
+
+/** MUI **/
 import { Box } from '@mui/material';
-import LogoSFGC from '/src/assets/ErrorPage/LogoSFGCBackground.svg'
-import { Text } from './globalComponents/globalcomponents.jsx';
+
+/** ASSETS **/
+import Icon404SmC from '/src/assets/errorPage/icon404smScreen.svg';
+import LogoSFGC from '/src/assets/errorPage/logoSFGCBackground.svg';
+
+/** CUSTOM COMPONENTS **/
+import { Text } from './globalComponents/globalComponents.jsx';
 
 export default function ErrorPage() {
     return (

@@ -1,13 +1,22 @@
 
 
+/** LIBS **/
 import React from 'react';
+
+/** MUI **/
 import { Drawer, Box, List, ListItem, ListItemButton, ListItemText, Divider, IconButton } from '@mui/material';
+
+/** ROUTER **/
 import { Link } from 'react-router-dom';
+
+/** LAYOUT TOKENS **/
 import { SIDEBAR_WIDTH } from '/src/styles/layout.js';
 
+/** ICONS **/
 import CloseIcon from '@mui/icons-material/Close';
 
-import LogoSFGC from '/src/assets/GlobalComponents/Footer/LogoSFGC.svg'
+/** ASSETS **/
+import LogoSFGC from '/src/assets/baseComponents/footer/logoSFGC.svg';
 
 export default function Sidebar({ isOpen, onClose }) {
     const menuItems = [

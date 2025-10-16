@@ -1,8 +1,12 @@
+/** LIBS **/
 import React from 'react';
+
+/** MUI **/
 import { Box, Typography, Container, Divider, Grid } from '@mui/material';
 
-import MySign from '/src/assets/GlobalComponents/Footer/MySignWhite.png'
-import LogoSFGC from '/src/assets/GlobalComponents/Footer/LogoSFGC.svg'
+/** ASSETS **/
+import MySign from '/src/assets/baseComponents/footer/mySignWhite.png';
+import LogoSFGC from '/src/assets/baseComponents/footer/logoSFGC.svg';
 
 const Footer = () => (
     <Box

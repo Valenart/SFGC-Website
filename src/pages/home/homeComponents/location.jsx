@@ -3,16 +3,25 @@ const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';
 const COLOR_PAPER = '#d9d9d9';
 
+/** LIBS **/
 import React from 'react';
+
+/** MUI **/
 import { Box, Grid, Paper } from '@mui/material';
-import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalcomponents';
+
+/** CUSTOM COMPONENTS **/
+import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalComponents';
+
+/** TOKENS / STYLES **/
 import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js';
 import './homeComponents.css';
 
-import mapaSFGC from '/src/assets/Home/Location/MapaSFGC.png';
-import CampoGolf from '/src/assets/Home/Location/fieldGolf.jpg'
-import treeImage from '/src/assets/Home/Location/TreeIcon.svg';
-import golfBall from '/src/assets/Home/Location/golfBall.svg'
+/** ASSETS **/
+import mapaSFGC from '/src/assets/home/location/mapaSFGC.png';
+import CampoGolf from '/src/assets/home/location/fieldGolf.jpg';
+import treeImage from '/src/assets/home/location/treeIcon.svg';
+import golfBall from '/src/assets/home/location/golfBall.svg';
+
 
 export default function LocationSection() {
 

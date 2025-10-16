@@ -18,10 +18,10 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useTheme } from '@mui/material/styles';
 
 /* COMPONENTES GLOBAIS CUSTOMIZADOS */
-import { Title, Text, CustomButton, Logo } from '../../components/globalComponents/globalcomponents';
+import { Title, Text, CustomButton, Logo } from '../../components/globalComponents/globalComponents';
 
 /* PHOTOS IMPORT */
-import bgLogin from '/src/assets/Login/GolfField1.jpg';
+import bgLogin from '/src/assets/login/golfField1.jpg';
 
 const COLOR_PRIMARY = '#B58017';
 

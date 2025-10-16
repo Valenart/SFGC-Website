@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
-import { Title, Text, SectionType } from '../../../components/globalComponents/globalcomponents';
+import { Title, Text, SectionType } from '../../../components/globalComponents/globalComponents';
 import { MAX_CONTENT_WIDTH } from '../../../styles/layout';
 import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
 
-import SedeImagem from '/src/assets/Home/Contato/SedeCampo.jpg';
+import SedeImagem from '/src/assets/home/contato/sedeCampo.jpg';
 
 const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';
@@ -21,7 +21,7 @@ export default function ContatoSection() {
                         component="img"
                         src={SedeImagem}
                         alt="Imagem de Sede"
-                        sx={{ width: { xs: '80%', md: '80%' }, padding: 1, maxWidth: 'calc(300px + 10vw)', height: 'auto', objectFit: 'cover', border: `4px solid ${COLOR_PRIMARY}` }}
+                        sx={{ width: { xs: '80%', md: '80%' }, padding: 1, maxWidth: 'calc(250px + 20%)', height: 'auto', objectFit: 'cover', border: `4px solid ${COLOR_PRIMARY}` }}
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -88,7 +88,7 @@ export default function ContatoSection() {
                     </Box>
                 </Grid>
                 {/* Nota */}
-                <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
+                <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', marginBlock: { xs: 1, md: 2 } }}>
                     <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem">
                         NOTA: O clube não está disponível para eventos externos como casamentos, aniversários ou outras confraternizações.
                     </Text>

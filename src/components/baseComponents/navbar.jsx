@@ -1,21 +1,30 @@
+/** LIBS **/
 import * as React from 'react';
+import { useState } from 'react';
+
+/** MUI **/
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
 import Popover from '@mui/material/Popover';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
-
 import Container from '@mui/material/Container';
+
+/** ICONS **/
+import MenuIcon from '@mui/icons-material/Menu';
 import { Person, Phone } from '@mui/icons-material';
 
-import logoSFGC from '/src/assets/GlobalComponents/Navbar/logoSFGC.png'
-import { Text, SectionType } from '/src/components/globalComponents/globalcomponents';
+/** ROUTER **/
+import { Link } from 'react-router-dom';
+
+/** ASSETS **/
+import logoSFGC from '/src/assets/baseComponents/navbar/logoSFGC.png';
+
+/** CUSTOM COMPONENTS **/
+import { Text, SectionType } from '/src/components/globalComponents/globalComponents';
 
 const COLOR_DARK = '#20491A';
 
