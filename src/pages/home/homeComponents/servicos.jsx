@@ -19,13 +19,13 @@ import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { SectionType, Title, Text, CustomCard } from '../../../components/globalComponents/globalComponents';
 
 /** TOKENS **/
-import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js';
+import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';
 
 /** ASSETS **/
-import AulasImg from '/src/assets/home/servicos/aulas.jpg';
-import GolfBagImg from '/src/assets/home/servicos/golfBag.jpg';
-import GolfCartImg from '/src/assets/home/servicos/golfCart.jpg';
-import GolfBag from '/src/assets/home/servicos/golfBag.svg';
+import AulasImg from '@/assets/home/servicos/aulas.jpg';
+import GolfBagImg from '@/assets/home/servicos/golfBag.jpg';
+import GolfCartImg from '@/assets/home/servicos/golfCart.jpg';
+import GolfBag from '@/assets/home/servicos/golfBag.svg';
 
 /** STYLES **/
 import './homeComponents.css';

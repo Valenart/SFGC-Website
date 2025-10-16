@@ -1,4 +1,4 @@
-import { Title } from '/src/components/globalComponents/globalComponents.jsx';
+import { Title } from '@/components/globalComponents/globalComponents.jsx';
 import { Grid } from '@mui/material';
 
 export default function Fotos() {

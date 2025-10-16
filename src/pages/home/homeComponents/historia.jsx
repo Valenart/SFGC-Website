@@ -8,8 +8,8 @@ import { Box, Grid } from '@mui/material';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalComponents';
 
 /** ASSETS **/
-import historiaImage from '/src/assets/home/historia/sociosFoto.jpg';
-import LogoSFGC from '/src/assets/baseComponents/footer/logoSFGC.svg';
+import historiaImage from '@/assets/home/historia/sociosFoto.jpg';
+import LogoSFGC from '@/assets/baseComponents/footer/logoSFGC.svg';
 
 /** STYLES / TOKENS **/
 import './homeComponents.css';

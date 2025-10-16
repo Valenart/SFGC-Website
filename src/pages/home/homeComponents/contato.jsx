@@ -6,7 +6,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
 
-import SedeImagem from '/src/assets/home/contato/sedeCampo.jpg';
+import SedeImagem from '@/assets/home/contato/sedeCampo.jpg';
 
 const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';

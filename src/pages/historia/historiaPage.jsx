@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '@mui/material'
 import { SectionType, Title, Text } from '../../components/globalComponents/globalComponents'
-import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js'
+import { MAX_CONTENT_WIDTH } from '@/styles/layout.js'
 
 export default function HistoriaPage() {
     return (

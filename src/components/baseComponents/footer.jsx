@@ -5,8 +5,8 @@ import React from 'react';
 import { Box, Typography, Container, Divider, Grid } from '@mui/material';
 
 /** ASSETS **/
-import MySign from '/src/assets/baseComponents/footer/mySignWhite.png';
-import LogoSFGC from '/src/assets/baseComponents/footer/logoSFGC.svg';
+import MySign from '@/assets/baseComponents/footer/mySignWhite.png';
+import LogoSFGC from '@/assets/baseComponents/footer/logoSFGC.svg';
 
 const Footer = () => (
     <Box
