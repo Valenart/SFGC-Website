@@ -18,7 +18,6 @@ export default function ErrorPage() {
                 component="img"
                 src={LogoSFGC}
                 alt="Logo São Francisco Golf Club"
-                loading="lazy"
                 sx={{
                     position: 'absolute',
                     left: '50%',

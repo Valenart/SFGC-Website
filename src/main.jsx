@@ -29,11 +29,11 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: '/Historia',
+        path: 'historia',
         element: <Historia />
       },
       {
-        path: '/Fotos',
+        path: 'fotos',
         element: <Fotos />
       },
     ]
