@@ -21,10 +21,10 @@ import { Person, Phone } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
 /** ASSETS **/
-import logoSFGC from '/src/assets/baseComponents/navbar/logoSFGC.png';
+import logoSFGC from '@/assets/baseComponents/navbar/logoSFGC.png';
 
 /** CUSTOM COMPONENTS **/
-import { Text, SectionType } from '/src/components/globalComponents/globalComponents';
+import { Text, SectionType } from '@/components/globalComponents/globalComponents';
 
 const COLOR_DARK = '#20491A';
 

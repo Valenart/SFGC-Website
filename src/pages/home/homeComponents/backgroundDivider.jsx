@@ -2,7 +2,7 @@
 import { Box } from '@mui/material';
 
 /** ASSETS **/
-import bgDivider from '/src/assets/baseComponents/home/backgroundDivider.jpg';
+import bgDivider from '@/assets/baseComponents/home/backgroundDivider.jpg';
 
 export default function BackgroundDivider() {
     return (

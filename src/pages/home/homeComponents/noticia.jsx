@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Grid, Card } from '@mui/material';
-import bgNoticia from '../../../assets/home/noticias/backgroundNoticias.jpg';
+import bgNoticia from '../../../assets/Home/Noticias/BackgroundNoticias.jpg';
 import { SectionType, Title, Text, CustomButton, CustomCard } from '../../../components/globalComponents/globalComponents';
 import './homeComponents.css';
-import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js';
+import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';
 
 /** SWIPER **/
 import { Swiper, SwiperSlide } from 'swiper/react';

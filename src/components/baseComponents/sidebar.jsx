@@ -10,13 +10,13 @@ import { Drawer, Box, List, ListItem, ListItemButton, ListItemText, Divider, Ico
 import { Link } from 'react-router-dom';
 
 /** LAYOUT TOKENS **/
-import { SIDEBAR_WIDTH } from '/src/styles/layout.js';
+import { SIDEBAR_WIDTH } from '@/styles/layout.js';
 
 /** ICONS **/
 import CloseIcon from '@mui/icons-material/Close';
 
 /** ASSETS **/
-import LogoSFGC from '/src/assets/baseComponents/footer/logoSFGC.svg';
+import LogoSFGC from '@/assets/baseComponents/footer/logoSFGC.svg';
 
 export default function Sidebar({ isOpen, onClose }) {
     const menuItems = [

@@ -5,8 +5,8 @@ import React from 'react';
 import { Box } from '@mui/material';
 
 /** ASSETS **/
-import Icon404SmC from '/src/assets/errorPage/icon404smScreen.svg';
-import LogoSFGC from '/src/assets/errorPage/logoSFGCBackground.svg';
+import Icon404SmC from '@/assets/ErrorPage/errorScreen.svg';
+import LogoSFGC from '@/assets/ErrorPage/LogoSFGCBackground.svg';
 
 /** CUSTOM COMPONENTS **/
 import { Text } from './globalComponents/globalComponents.jsx';

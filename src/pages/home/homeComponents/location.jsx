@@ -13,14 +13,14 @@ import { Box, Grid, Paper } from '@mui/material';
 import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalComponents';
 
 /** TOKENS / STYLES **/
-import { MAX_CONTENT_WIDTH } from '/src/styles/layout.js';
+import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';
 import './homeComponents.css';
 
 /** ASSETS **/
-import mapaSFGC from '/src/assets/home/location/mapaSFGC.png';
-import CampoGolf from '/src/assets/home/location/fieldGolf.jpg';
-import treeImage from '/src/assets/home/location/treeIcon.svg';
-import golfBall from '/src/assets/home/location/golfBall.svg';
+import mapaSFGC from '@/assets/Home/Location/MapaSFGC.png';
+import CampoGolf from '@/assets/Home/Location/fieldGolf.jpg';
+import treeImage from '@/assets/Home/Location/TreeIcon.svg';
+import golfBall from '@/assets/Home/Location/golfBall.svg';
 
 
 export default function LocationSection() {
