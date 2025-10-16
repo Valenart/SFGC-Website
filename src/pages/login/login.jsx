@@ -74,7 +74,7 @@ export default function Login() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', width: '100vw' }}>
+    <Box sx={{ minHeight: '100vh', width: '100%' }}>
       <Grid container sx={{
         minHeight: '100vh',
         flexWrap: { md: 'nowrap' },

@@ -36,7 +36,6 @@ export default function LocationSection() {
                             component="img"
                             src={CampoGolf}
                             alt="Mapa do São Francisco Golf Club"
-                            loading="lazy"
                             sx={{
                                 width: { xs: '100%', md: '100%' },
                                 maxWidth: { xs: '90%', md: 'calc(500px + 20%)', lg: 'calc(500px + 20%)' },
@@ -136,7 +135,6 @@ export default function LocationSection() {
                             component="img"
                             src={mapaSFGC}
                             alt="Mapa do São Francisco Golf Club"
-                            loading="lazy"
                             sx={{
                                 width: { xs: '100%', md: '100%' },
                                 maxWidth: { xs: '90%', md: 'calc(500px + 20%)', lg: 'calc(500px + 20%)' },

@@ -5,7 +5,7 @@ import { MAX_CONTENT_WIDTH } from '@/styles/layout.js'
 
 export default function HistoriaPage() {
     return (
-        <Box id="HistoriaPage" sx={{ py: { xs: 4, md: 8 }, px: 2, bgcolor: '#fffef8' }}>
+        <Box id="HistoriaPage" sx={{ py: { xs: 4, md: 8 }, px: 2, bgcolor: '#f8f6ec' }}>
             <Box sx={{ maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', display: 'flex', flexDirection: 'column', gap: 3 }}>
                 <SectionType color="#B58017" fontSize="1rem">HISTÓRIA</SectionType>
                 <Title color="#20491A" fontSize="2.2rem">HISTÓRIA DO SÃO FRANCISCO GOLF CLUB</Title>

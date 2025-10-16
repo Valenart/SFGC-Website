@@ -14,6 +14,7 @@ import LogoSFGC from '@/assets/baseComponents/footer/logoSFGC.svg';
 /** STYLES / TOKENS **/
 import './homeComponents.css';
 import { MAX_CONTENT_WIDTH } from '../../../styles/layout';
+import { Link } from 'react-router-dom';
 
 const COLOR_PRIMARY = '#B58017';
 const COLOR_DARK = '#20491A';
@@ -27,7 +28,7 @@ export default function HistoriaSection() {
 				justifyContent: 'center',
 				alignItems: 'center',
 				bgcolor: COLOR_BG,
-				width: '100vw',
+				width: '100%',
 				py: { xs: 4, md: 8 },
 
 			}}
@@ -93,6 +94,8 @@ export default function HistoriaSection() {
 								Veja a história completa do clube e imagens históricas
 							</Text>
 							<CustomButton
+								component={Link}
+								to="/historia"
 								backgroundColor={COLOR_PRIMARY}
 								fontFamily="inherit"
 								fontSize="1rem"

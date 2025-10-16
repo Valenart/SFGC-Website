@@ -7,18 +7,17 @@ import NoticiaSection from "./homeComponents/noticia.jsx";
 import BackgroundDivider from "./homeComponents/backgroundDivider.jsx";
 
 /** MUI **/
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
 
 export default function Home() {
     return (
-        <>
-
+        < Grid sx={{ width: '100%', margin: '0 auto', padding: '0', overflow: 'hidden' }} >
             <LocationSection />
             <BackgroundDivider />
             <ServicosSection />
             <HistoriaSection />
             <NoticiaSection />
             <ContatoSection />
-        </>
+        </Grid>
     )
 }

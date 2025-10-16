@@ -1,5 +1,9 @@
 /** LIBS **/
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+/*STYLED COMPONENTS*/
+import { Text } from '@/components/globalComponents/globalComponents';
 
 /** MUI **/
 import { Box, Typography, Container, Divider, Grid } from '@mui/material';
@@ -12,6 +16,7 @@ const Footer = () => (
     <Box
         component="footer"
         sx={{
+            display: 'flex',
             backgroundColor: '#0B300D',
             color: '#fff',
             textAlign: 'center',
@@ -23,7 +28,7 @@ const Footer = () => (
     >
         <Container maxWidth={false} disableGutters sx={{ display: 'flex', flexDirection: 'column', width: '80vw' }} >
             {/* Grid: em xs fica empilhado; em md+ mostra duas colunas (mapa à esquerda, conteúdo à direita) */}
-            <Grid container alignItems="center" justifyContent="center" sx={{ display: 'flex', gap: { sx: 4, md: 0 } }}>
+            <Grid container alignItems="center" justifyContent="center" sx={{ display: 'flex' }}>
                 <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', mb: { xs: 2, md: 0 } }}>
                         <Box
@@ -54,29 +59,29 @@ const Footer = () => (
 
                 <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'column' }, flexWrap: 'wrap', mb: 2, gap: 4, justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'column' }, flexWrap: 'wrap', mb: 2, gap: 2, justifyContent: 'center', alignItems: { xs: 'center', md: 'flex-start' } }}>
 
-                        <Box component="nav" sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'row' }, textAlign: 'left', gap: 2, mb: 1 }}>
+                        <Box component="nav" sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'row' }, textAlign: 'left', gap: 2, paddingBlock: { xs: 1, md: 0 } }}>
                             <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, gap: 1 }}>
-                                <Typography variant="body2" component="a" href="/" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                                <Text component={Link} color='#fff' to="/" fontSize='0.9rem'>
                                     Home
-                                </Typography>
-                                <Typography variant="body2" component="a" href="/fotos" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                                </Text>
+                                <Text component={Link} color='#fff' to="/fotos" fontSize='0.9rem'>
                                     Fotos
-                                </Typography>
+                                </Text>
                             </Box>
 
                             <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, gap: 1 }}>
-                                <Typography variant="body2" component="a" href="/contato" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                                <Text component={Link} color='#fff' to="/contato" fontSize='0.9rem'>
                                     Contato
-                                </Typography>
-                                <Typography variant="body2" component="a" href="/historia" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                                </Text>
+                                <Text component={Link} to="/historia" color='#fff' fontSize='0.9rem'>
                                     História
-                                </Typography>
+                                </Text>
                             </Box>
                         </Box>
 
-                        <Typography variant="body2" sx={{ mb: 1 }}>
+                        <Typography variant="body2" >
                             &copy; {new Date().getFullYear()} São Francisco Golf Club - Todos os direitos reservados.
                         </Typography>
 
@@ -89,13 +94,15 @@ const Footer = () => (
                 <Typography variant="caption">
                     This site was developed by
                 </Typography>
-                <Box
-                    component="img"
-                    src={MySign}
-                    alt="Assinatura Richard Valentim"
-                    loading="lazy"
-                    sx={{ width: '100px' }}
-                />
+                <Box component="a" href="https://github.com/valenart" target="_blank" rel="noopener noreferrer">
+                    <Box
+                        component="img"
+                        src={MySign}
+                        alt="Assinatura Richard Valentim"
+                        loading="lazy"
+                        sx={{ width: '100px' }}
+                    />
+                </Box>
             </Box>
 
         </Container>

@@ -85,7 +85,7 @@ export default function Navbar({ handleClickMenu }) {
                         <Toolbar sx={{ p: 0, minHeight: '56px' }}>
                             {/* right controls */}
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                <IconButton>
+                                <IconButton component={Link} to="/contato" >
                                     <Phone sx={{ color: 'white' }} />
                                 </IconButton>
                                 <IconButton onClick={handlePersonClick}>

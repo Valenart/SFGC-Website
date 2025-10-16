@@ -20,11 +20,12 @@ export const Logo = ({ children, fontSize }) => {
         </Typography>)
 }
 
-export const SectionType = ({ children, color, fontFamily, fontSize, fontWeight }) => {
+export const SectionType = ({ children, color, fontFamily, fontSize, fontWeight, paddingBlock }) => {
     return (
         <Typography
             variant="h2"
             sx={{
+                paddingBlock: paddingBlock,
                 color: color,
                 fontFamily: fontFamily,
                 /* responsive font-size: use provided fontSize as base on md+, and a gentle clamp on xs */

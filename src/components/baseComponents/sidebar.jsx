@@ -14,6 +14,12 @@ import { SIDEBAR_WIDTH } from '@/styles/layout.js';
 
 /** ICONS **/
 import CloseIcon from '@mui/icons-material/Close';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import PlaceIcon from '@mui/icons-material/Place';
+
+/** COMPONENTS **/
+import { Text, SectionType, CustomButton } from '@/components/globalComponents/globalComponents.jsx';
 
 /** ASSETS **/
 import LogoSFGC from '@/assets/baseComponents/footer/logoSFGC.svg';
@@ -49,21 +55,50 @@ export default function Sidebar({ isOpen, onClose }) {
                     ))}
                 </List>
                 <Divider sx={{ my: 2, backgroundColor: '#FFFFFF33' }} />
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center' }}>
-                    <Box sx={{ textAlign: 'center', fontSize: 12 }}>
-                        &copy; {new Date().getFullYear()} - São Francisco Golf Club
+
+                {/* Contact information and map (using shared components) */}
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <EmailIcon sx={{ color: '#fff', fontSize: 18 }} />
+                            <Text color="#fff" fontSize='0.8rem'>Saofranciscogolf@uol.com.br</Text>
+                        </Box>
+
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <PhoneIcon sx={{ color: '#fff', fontSize: 18 }} />
+                            <Text color="#fff" fontSize='0.8rem'>(11) 3681-8752 / 3681-0329</Text>
+                        </Box>
                     </Box>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                    <Divider sx={{ my: 1, backgroundColor: '#FFFFFF22' }} />
+
+                    <Box sx={{ width: '100%', borderRadius: 1, overflow: 'hidden', boxShadow: 'inset 0 0 0 1px #ffffff12' }}>
+                        {/* Google Maps iframe - small, responsive */}
+                        <Box
+                            component="iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1026.293813160432!2d-46.76536358914396!3d-23.557864608252316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce55f517b1d94f%3A0xf89a4667493c2793!2sS%C3%A3o%20Francisco%20Golf%20Club!5e0!3m2!1spt-BR!2sbr!4v1760101725033!5m2!1spt-BR!2sbr"
+                            title="Localização SFGC"
+                            width="100%"
+                            height="160"
+                            style={{ border: 0, display: 'block' }}
+                            loading="lazy"
+                        />
+                    </Box>
+
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: 1 }}>
                         <Box
                             component="img"
                             src={LogoSFGC}
                             alt="Logo São Francisco Golf Club"
-                            loading="lazy"
-                            sx={{ filter: "opacity(0.8)", width: { xs: '80px', md: '80px', lg: '80px' }, height: 'auto', objectFit: 'cover', boxShadow: 'none' }}
+                            sx={{ filter: "opacity(0.8)", width: { xs: '72px', md: '80px' }, height: 'auto', objectFit: 'contain' }}
                         />
+                    </Box>
+
+                    <Box sx={{ textAlign: 'center', fontSize: 11, color: '#FFFFFF99' }}>
+                        &copy; {new Date().getFullYear()} - São Francisco Golf Club
                     </Box>
                 </Box>
             </Box>
-        </Drawer>
+        </Drawer >
     );
 }

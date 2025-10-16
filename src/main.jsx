@@ -13,6 +13,7 @@ import ErrorPage from './components/ErrorPage.jsx';
 import Home from './pages/home/home.jsx';
 import Historia from './pages/historia/historiaPage.jsx';
 import Fotos from './pages/fotos/fotos.jsx';
+import Contato from './pages/contato/contato.jsx';
 
 /** THEME / STYLES **/
 import theme from './theme';
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: 'fotos',
         element: <Fotos />
+      },
+      {
+        path: '/contato',
+        element: <Contato />
       },
     ]
   },

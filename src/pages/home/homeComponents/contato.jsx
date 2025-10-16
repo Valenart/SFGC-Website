@@ -13,7 +13,7 @@ const COLOR_DARK = '#20491A';
 
 export default function ContatoSection() {
     return (
-        <Box sx={{ py: { xs: 6, md: 8 }, maxWidth: '100vw' }}>
+        <Box sx={{ py: { xs: 6, md: 8 }, maxWidth: '100%' }}>
             <Grid container justifyContent="center" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 4, md: 0 }, maxWidth: MAX_CONTENT_WIDTH, mx: 'auto', alignItems: { xs: 'center', md: "center" } }}>
                 {/* Horários */}
                 <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
