@@ -36,7 +36,7 @@ const COLOR_DARK = '#20491A';
 const COLOR_BG = '#f8f6ec';
 
 const SLIDES = [
-    { src: AulasImg, title: 'Aulas', desc: 'Acompanhamento de profissionais para todos os níveis.' },
+    { src: AulasImg, title: 'Aulas e treinamentos', desc: 'Acompanhamento de profissionais para todos os níveis.' },
     { src: GolfBagImg, title: 'Aluguel de Tacos', desc: 'Tacos de alta qualidade disponíveis para empréstimo.' },
     { src: GolfCartImg, title: 'Carrinhos', desc: 'Carrinhos elétricos para maior conforto no campo.' },
 ];

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-/* MUI COMPONENTS, ICONS AND HOOKS */
+/* MUI COMPONENTS, ICONS E HOOKS */
 import {
   Box,
   TextField,
@@ -20,7 +20,7 @@ import { useTheme } from '@mui/material/styles';
 /* COMPONENTES GLOBAIS CUSTOMIZADOS */
 import { Title, Text, CustomButton, Logo } from '@/components/globalComponents/globalComponents.jsx';
 
-/* PHOTOS IMPORT */
+/* FOTOS IMPORT */
 import bgLogin from '../../assets/Login/golffield.jpg';
 
 const COLOR_PRIMARY = '#B58017';
@@ -37,7 +37,6 @@ export default function Login() {
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'info' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // --- handlers (ordered logically) ---
   // handle field changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -59,7 +58,6 @@ export default function Login() {
 
     setIsSubmitting(true);
 
-    // Simula requisição de autenticação (substitua por fetch/axios real)
     setTimeout(() => {
       setIsSubmitting(false);
       setSnackbar({ open: true, message: 'Login enviado com sucesso!', severity: 'success' });

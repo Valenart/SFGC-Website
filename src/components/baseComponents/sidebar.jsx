@@ -40,7 +40,7 @@ export default function Sidebar({ isOpen, onClose }) {
                 }
             }}
         >
-            <Box sx={{ width: SIDEBAR_WIDTH, p: { xs: 2, md: 3 } }} role="presentation" onClick={onClose} onKeyDown={onClose}>
+            <Box sx={{ width: SIDEBAR_WIDTH, p: { xs: 2, md: 3 }, display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }} role="presentation" onClick={onClose} onKeyDown={onClose}>
 
                 <IconButton>
                     <CloseIcon sx={{ color: '#fff' }} />
@@ -54,18 +54,22 @@ export default function Sidebar({ isOpen, onClose }) {
                         </ListItem>
                     ))}
                 </List>
-                <Divider sx={{ my: 2, backgroundColor: '#FFFFFF33' }} />
+
+
 
                 {/* Contact information and map (using shared components) */}
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, }}>
+
+                    <Divider sx={{ my: 2, backgroundColor: '#FFFFFF33' }} />
+
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <EmailIcon sx={{ color: '#fff', fontSize: 18 }} />
+                            <EmailIcon sx={{ color: '#fff', fontSize: 18, display: { xs: 'none', md: 'block' } }} />
                             <Text color="#fff" fontSize='0.8rem'>Saofranciscogolf@uol.com.br</Text>
                         </Box>
 
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <PhoneIcon sx={{ color: '#fff', fontSize: 18 }} />
+                            <PhoneIcon sx={{ color: '#fff', fontSize: 18, display: { xs: 'none', md: 'block' } }} />
                             <Text color="#fff" fontSize='0.8rem'>(11) 3681-8752 / 3681-0329</Text>
                         </Box>
                     </Box>
