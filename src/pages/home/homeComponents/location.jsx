@@ -10,7 +10,7 @@ import React from 'react';
 import { Box, Grid, Paper } from '@mui/material';
 
 /** CUSTOM COMPONENTS **/
-import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalComponents';
+import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalComponents.jsx';
 
 /** TOKENS / STYLES **/
 import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';

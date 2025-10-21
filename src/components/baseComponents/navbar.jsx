@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 import logoSFGC from '@/assets/baseComponents/navbar/logoSFGC.png';
 
 /** CUSTOM COMPONENTS **/
-import { Text, SectionType } from '@/components/globalComponents/globalComponents';
+import { Text, SectionType } from '@/components/globalComponents/globalComponents.jsx';
 
 const COLOR_DARK = '#20491A';
 

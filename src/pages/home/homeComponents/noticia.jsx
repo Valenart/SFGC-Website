@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Box, Grid, Card } from '@mui/material';
 import bgNoticia from '../../../assets/Home/Noticias/BackgroundNoticias.jpg';
-import { SectionType, Title, Text, CustomButton, CustomCard } from '../../../components/globalComponents/globalComponents';
+import { SectionType, Title, Text, CustomButton, CustomCard } from '../../../components/globalComponents/globalComponents.jsx';
 import './homeComponents.css';
 import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';
 
@@ -12,10 +12,20 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
+/** REACT **/
+import { useState, useEffect } from 'react';
+
 const COLOR_PRIMARY = '#fff';
 const COLOR_BG = '#263126';
 
 export default function NoticiaSection() {
+
+    const [posts, setposts] = useState([]);
+
+    useEffect(() => {
+        console.log('teste de log!')
+    }, []);
+
     return (
         <Box id="NoticiaSection"
 

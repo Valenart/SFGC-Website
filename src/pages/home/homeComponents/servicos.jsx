@@ -16,7 +16,7 @@ import 'swiper/css/autoplay';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 
 /** CUSTOM COMPONENTS **/
-import { SectionType, Title, Text, CustomCard } from '../../../components/globalComponents/globalComponents';
+import { SectionType, Title, Text, CustomCard } from '../../../components/globalComponents/globalComponents.jsx';
 
 /** TOKENS **/
 import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
-import { Title, Text, SectionType } from '../../../components/globalComponents/globalComponents';
+import { Title, Text, SectionType } from '../../../components/globalComponents/globalComponents.jsx';
 import { MAX_CONTENT_WIDTH } from '../../../styles/layout';
 import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';

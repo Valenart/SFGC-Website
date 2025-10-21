@@ -5,7 +5,7 @@ import React from 'react';
 import { Box, Grid } from '@mui/material';
 
 /** CUSTOM COMPONENTS **/
-import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalComponents';
+import { SectionType, Title, Text, CustomButton } from '../../../components/globalComponents/globalComponents.jsx';
 
 /** ASSETS **/
 import historiaImage from '@/assets/Home/Historia/SociosFoto.jpg';

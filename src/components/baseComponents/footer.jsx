@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 /*STYLED COMPONENTS*/
-import { Text } from '@/components/globalComponents/globalComponents';
+import { Text } from '@/components/globalComponents/globalComponents.jsx';
 
 /** MUI **/
 import { Box, Typography, Container, Divider, Grid } from '@mui/material';
