@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { Title } from "../../../components/globalComponents/globalComponents.jsx";
-import videoIntro from "../../../assets/home/videoIntroduction/videoIntroduction.mp4";
+import videoIntro from "../../../assets/Home/videoIntroduction/videoIntroduction.mp4";
 
 export default function VideoIntroduction() {
     return (
