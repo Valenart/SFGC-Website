@@ -4,27 +4,30 @@ import { Box, Grid, Card } from '@mui/material';
 import bgNoticia from '../../../assets/Home/Noticias/BackgroundNoticias.jpg';
 import { SectionType, Title, Text, CustomButton, CustomCard } from '../../../components/globalComponents/globalComponents.jsx';
 import './homeComponents.css';
+import CircularProgress from '@mui/material/CircularProgress';
 import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';
 
 /** REACT **/
 import { useState, useEffect } from 'react';
+import { SwiperSlide, Swiper } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 const COLOR_PRIMARY = '#fff';
-const COLOR_BG = '#263126';
 
 export default function NoticiaSection() {
 
     const [posts, setposts] = useState([]);
+    const [isData, setIsData] = useState(true);
 
     const getPosts = async () => {
         try {
             const response = await axios.get('https://sfgc-website-api.onrender.com/posts');
             const data = response.data.posts
-
             setposts(data);
         } catch (error) {
             console.error('Houve um erro ao trazer as postagens:', error);
             setposts([]);
+            setIsData(false);
             return [];
         }
     }
@@ -57,25 +60,45 @@ export default function NoticiaSection() {
                         Confira as novidades e os eventos recentes do clube. Fique atento às atualizações.
                     </Text>
                 </Box>
-                <Box container sx={{ width: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', gap: 2, alignItems: 'center', justifyContent: 'center' }}>
-                    {posts
-                        .slice()
-                        .sort((a, b) => b.id - a.id)
-                        .slice(0, 3)
-                        .map((post) => (
-                            <Box item xs={12} md={4} key={post.id} sx={{ width: '400px' }}>
-                                <CustomCard
-                                    height={'400px'}
-                                    photo={post.image_url}
-                                    title={post.title}
-                                    datePost={post.data_postagem}
-                                    text={post.description}
-                                    useChip={true}
-                                    chipLabel={(post.user_id) == 1 ? 'Administrador SFGC' : ''}
-                                ></CustomCard>
+
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: MAX_CONTENT_WIDTH, mx: 0, '--swiper-theme-color': '#B58017', '--swiper-navigation-color': '#B58017', '--swiper-pagination-color': '#B58017' }}>
+                    {isData ? (<Swiper
+                        modules={[Pagination, Navigation, Autoplay]}
+                        pagination={{ clickable: true }}
+                        navigation={{ clickable: true }}
+                        loop={true}
+                        autoplay={{ delay: 4200, disableOnInteraction: true, pauseOnMouseEnter: true }}
+                        breakpoints={{
+                            0: { slidesPerView: 1, centeredSlides: false },
+                            800: { slidesPerView: 2, centeredSlides: false },
+                            1200: { slidesPerView: 3, centeredSlides: false },
+                        }}
+                    >
+                        {posts && posts.length > 0 ? posts
+                            .slice()
+                            .sort((a, b) => b.id - a.id)
+                            .slice(0, 3)
+                            .map((post, id) => (
+                                <SwiperSlide key={post.id ?? id} style={{ display: 'flex', justifyContent: 'center' }}>
+                                    <Box sx={{ paddingInline: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <Box sx={{ width: '280px' }}>
+                                            <CustomCard
+                                                photo={post.image_url}
+                                                descriptionImage={post.image_alt ?? ""}
+                                                title={(post.title || '').toUpperCase()}
+                                                datePost={post.dataPostagem}
+                                                text={post.description}
+                                            />
+                                        </Box>
+                                    </Box>
+                                </SwiperSlide>
+                            )) : (
+                            <Box sx={{ display: 'flex', paddingBlock: 4 }}>
+                                <CircularProgress />
                             </Box>
-                        ))}
-                </Box>
+                        )}
+                    </Swiper>) : (<SectionType color={'#fff'} paddingBlock={'10px'}>NENHUMA NOTÍCIA ENCONTRADA</SectionType>)}
+                </Box >
             </Box >
         </Box >
     );
