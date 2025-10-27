@@ -1,6 +1,11 @@
-import { axios } from 'axios';
+import axios from "axios";
 
 export class BaseController {
+
+    handleError(error) {
+        console.error('API Error:', error);
+        throw error;
+    }
 
     constructor(baseURL) {
         this.api = axios.create({

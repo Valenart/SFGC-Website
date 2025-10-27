@@ -10,7 +10,7 @@ export default function BackgroundDivider() {
             component="img"
             src={bgDivider}
             alt="Imagem decorativa de divisão de seções"
-            loading="lazy"
+
             sx={{
                 position: 'block',
                 zIndex: 1,

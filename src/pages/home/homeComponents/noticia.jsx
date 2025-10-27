@@ -1,9 +1,13 @@
-import React, { use } from 'react';
+import React from 'react';
+import axios from 'axios';
 import { Box, Grid, Card } from '@mui/material';
 import bgNoticia from '../../../assets/Home/Noticias/BackgroundNoticias.jpg';
 import { SectionType, Title, Text, CustomButton, CustomCard } from '../../../components/globalComponents/globalComponents.jsx';
 import './homeComponents.css';
 import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';
+
+/*CONTROLLER*/
+import { HomeController } from '../../../controller/home/home.js';
 
 /** SWIPER **/
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,8 +26,23 @@ export default function NoticiaSection() {
 
     const [posts, setposts] = useState([]);
 
+
+    const getPosts = async () => {
+        try {
+            const response = await axios.get('https://sfgc-website-api.onrender.com/posts');
+            const data = response.data.posts;
+            const dataArray = Object.entries(data);
+            setposts(dataArray);
+            return dataArray;
+        } catch (error) {
+            console.error('Failed to fetch posts:', error);
+            setposts([]);
+            return [];
+        }
+    }
+
     useEffect(() => {
-        console.log('teste de log!')
+        getPosts();
     }, []);
 
     return (
@@ -51,8 +70,8 @@ export default function NoticiaSection() {
                     </Text>
                 </Box>
 
-                <Box sx={{ display: 'flex', width: '100%', maxWidth: MAX_CONTENT_WIDTH, mx: 0, '--swiper-theme-color': '#B58017', '--swiper-navigation-color': '#B58017', '--swiper-pagination-color': '#B58017' }}>
-                    <Swiper
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: MAX_CONTENT_WIDTH, mx: 0, '--swiper-theme-color': '#B58017', '--swiper-navigation-color': '#B58017', '--swiper-pagination-color': '#B58017' }}>
+                    {posts ? (<Swiper
                         modules={[Pagination, Navigation, Autoplay]}
                         pagination={{ clickable: true }}
                         navigation={{ clickable: true }}
@@ -64,22 +83,24 @@ export default function NoticiaSection() {
                             1200: { slidesPerView: 3, centeredSlides: false },
                         }}
                     >
-                        {[1, 2, 3].map((i) => (
-                            <SwiperSlide key={i} style={{ display: 'flex', justifyContent: 'center' }}>
+                        {posts && posts.length > 0 ? posts.map((post, id) => (
+                            <SwiperSlide key={post.id ?? id} style={{ display: 'flex', justifyContent: 'center' }}>
                                 <Box sx={{ paddingInline: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                     <Box sx={{ width: '280px' }}>
                                         <CustomCard
-                                            photo={bgNoticia}
-                                            descriptionImage={`noticia-${i}`}
-                                            title={`Titulo da Notícia ${i}`.toUpperCase()}
-                                            datePost={'September 17, 2020'}
-                                            text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.'}
+                                            photo={post.image_url}
+                                            descriptionImage={post.image_alt ?? ""}
+                                            title={(post.title || '').toUpperCase()}
+                                            datePost={post.dataPostagem}
+                                            text={post.description}
                                         />
                                     </Box>
                                 </Box>
                             </SwiperSlide>
-                        ))}
-                    </Swiper>
+                        )) : (
+                            ''
+                        )}
+                    </Swiper>) : (<SectionType color={'#fff'} paddingBlock={'10px'}>NENHUMA NOTÍCIA ENCONTRADA</SectionType>)}
                 </Box >
             </Box >
         </Box >
