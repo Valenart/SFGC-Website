@@ -127,9 +127,9 @@ export const CustomButton = ({ children, color = "primary", fontFamily, fontSize
     );
 }
 
-export const CustomCard = ({ height, photo, descriptionImage = '', title, datePost = '', text, useChip = false, colorChip, chipLabel, }) => {
+export const CustomCard = ({ height, width, photo, descriptionImage = '', title, datePost = '', text, useChip = false, colorChip, chipLabel, key }) => {
     return (
-        <Card sx={{ backgroundColor: '#fffaf0', boxShadow: '0px 0px 5px rgba(11, 48, 13, 0.2)', width: '100%', height: height, overflow: 'hidden' }}>
+        <Card key={key} sx={{ backgroundColor: '#fffaf0', boxShadow: '0px 0px 5px rgba(11, 48, 13, 0.2)', width: width, height: height, overflow: 'hidden' }}>
             <CardMedia
                 component="img"
                 image={photo}
@@ -154,7 +154,7 @@ export const CustomCard = ({ height, photo, descriptionImage = '', title, datePo
                     {text}
                 </Text>
 
-                {useChip ? <Chip label={chipLabel} color={colorChip} sx={{ borderRadius: 0, width: '30%' }} /> : ''}
+                {useChip ? <Chip label={chipLabel} color={colorChip} sx={{ borderRadius: 0, width: '100px' }} /> : ''}
             </CardContent>
         </Card>
     )

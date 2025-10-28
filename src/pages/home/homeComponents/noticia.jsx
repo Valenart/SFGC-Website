@@ -6,16 +6,6 @@ import { SectionType, Title, Text, CustomButton, CustomCard } from '../../../com
 import './homeComponents.css';
 import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';
 
-/*CONTROLLER*/
-import { HomeController } from '../../../controller/home/home.js';
-
-/** SWIPER **/
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-
 /** REACT **/
 import { useState, useEffect } from 'react';
 
@@ -26,16 +16,14 @@ export default function NoticiaSection() {
 
     const [posts, setposts] = useState([]);
 
-
     const getPosts = async () => {
         try {
             const response = await axios.get('https://sfgc-website-api.onrender.com/posts');
-            const data = response.data.posts;
-            const dataArray = Object.entries(data);
-            setposts(dataArray);
-            return dataArray;
+            const data = response.data.posts
+
+            setposts(data);
         } catch (error) {
-            console.error('Failed to fetch posts:', error);
+            console.error('Houve um erro ao trazer as postagens:', error);
             setposts([]);
             return [];
         }
@@ -69,39 +57,25 @@ export default function NoticiaSection() {
                         Confira as novidades e os eventos recentes do clube. Fique atento às atualizações.
                     </Text>
                 </Box>
-
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: MAX_CONTENT_WIDTH, mx: 0, '--swiper-theme-color': '#B58017', '--swiper-navigation-color': '#B58017', '--swiper-pagination-color': '#B58017' }}>
-                    {posts ? (<Swiper
-                        modules={[Pagination, Navigation, Autoplay]}
-                        pagination={{ clickable: true }}
-                        navigation={{ clickable: true }}
-                        loop={true}
-                        autoplay={{ delay: 4200, disableOnInteraction: true, pauseOnMouseEnter: true }}
-                        breakpoints={{
-                            0: { slidesPerView: 1, centeredSlides: false },
-                            800: { slidesPerView: 2, centeredSlides: false },
-                            1200: { slidesPerView: 3, centeredSlides: false },
-                        }}
-                    >
-                        {posts && posts.length > 0 ? posts.map((post, id) => (
-                            <SwiperSlide key={post.id ?? id} style={{ display: 'flex', justifyContent: 'center' }}>
-                                <Box sx={{ paddingInline: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Box sx={{ width: '280px' }}>
-                                        <CustomCard
-                                            photo={post.image_url}
-                                            descriptionImage={post.image_alt ?? ""}
-                                            title={(post.title || '').toUpperCase()}
-                                            datePost={post.dataPostagem}
-                                            text={post.description}
-                                        />
-                                    </Box>
-                                </Box>
-                            </SwiperSlide>
-                        )) : (
-                            ''
-                        )}
-                    </Swiper>) : (<SectionType color={'#fff'} paddingBlock={'10px'}>NENHUMA NOTÍCIA ENCONTRADA</SectionType>)}
-                </Box >
+                <Box container sx={{ width: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', gap: 2, alignItems: 'center', justifyContent: 'center' }}>
+                    {posts
+                        .slice()
+                        .sort((a, b) => b.id - a.id)
+                        .slice(0, 3)
+                        .map((post) => (
+                            <Box item xs={12} md={4} key={post.id} sx={{ width: '400px' }}>
+                                <CustomCard
+                                    height={'400px'}
+                                    photo={post.image_url}
+                                    title={post.title}
+                                    datePost={post.data_postagem}
+                                    text={post.description}
+                                    useChip={true}
+                                    chipLabel={(post.user_id) == 1 ? 'Administrador SFGC' : ''}
+                                ></CustomCard>
+                            </Box>
+                        ))}
+                </Box>
             </Box >
         </Box >
     );
