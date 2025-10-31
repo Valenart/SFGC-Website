@@ -80,7 +80,7 @@ export const Title = ({ children, color = '#fff', fontFamily, fontSize, fontWeig
 );
 
 /* COMPONENTE DE TEXTO DE SEÇÃO */
-export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight, padding, ...rest }) => (
+export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight, padding, textAlign, ...rest }) => (
     <Typography
         variant="body1"
         sx={{
@@ -95,6 +95,7 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
             paddingBlock: padding,
             textDecoration: 'none',
             textOverflow: 'ellipsis',
+            textAlign: textAlign
         }}
         id="text"
         style={{
@@ -127,16 +128,16 @@ export const CustomButton = ({ children, color = "primary", fontFamily, fontSize
     );
 }
 
-export const CustomCard = ({ height, width, photo, descriptionImage = '', title, datePost = '', text, useChip = false, colorChip, chipLabel, key }) => {
+export const CustomCard = ({ height = 400, width, photo, descriptionImage = '', title, datePost = '', text, useChip = false, colorChip, chipLabel, key, textSx }) => {
     return (
-        <Card key={key} sx={{ backgroundColor: '#fffaf0', boxShadow: '0px 0px 5px rgba(11, 48, 13, 0.2)', width: width, height: height, overflow: 'hidden' }}>
+        <Card key={key} sx={{ backgroundColor: '#fffaf0', boxShadow: '0px 0px 5px rgba(11, 48, 13, 0.2)', width: width, height: height, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
             <CardMedia
                 component="img"
                 image={photo}
                 alt={descriptionImage}
                 sx={{ width: '100%', height: 200, objectFit: 'cover' }}
             />
-            <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1, justifyContent: 'flex-start' }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' } }}>
                     <SectionType
                         fontSize="1rem"
@@ -150,9 +151,11 @@ export const CustomCard = ({ height, width, photo, descriptionImage = '', title,
                     </Text>
                 </Box>
 
-                <Text fontSize="0.9rem" color="#000000ff" fontWeight="400">
-                    {text}
-                </Text>
+                <Box sx={{ flex: 1, display: 'flex', alignItems: 'flex-start' }}>
+                    <Text fontSize="0.9rem" color="#000000ff" fontWeight="400" sx={textSx}>
+                        {text}
+                    </Text>
+                </Box>
 
                 {useChip ? <Chip label={chipLabel} color={colorChip} sx={{ borderRadius: 0, width: '100px' }} /> : ''}
             </CardContent>

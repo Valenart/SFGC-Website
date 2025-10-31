@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { Box, Grid, Card } from '@mui/material';
+import { Box } from '@mui/material';
 import bgNoticia from '../../../assets/Home/Noticias/BackgroundNoticias.jpg';
-import { SectionType, Title, Text, CustomButton, CustomCard } from '../../../components/globalComponents/globalComponents.jsx';
+import { SectionType, Title, Text, CustomCard } from '../../../components/globalComponents/globalComponents.jsx';
 import './homeComponents.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import { MAX_CONTENT_WIDTH } from '@/styles/layout.js';
@@ -81,13 +81,22 @@ export default function NoticiaSection() {
                             .map((post, id) => (
                                 <SwiperSlide key={post.id ?? id} style={{ display: 'flex', justifyContent: 'center' }}>
                                     <Box sx={{ paddingInline: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        <Box sx={{ width: '280px' }}>
+                                        <Box sx={{ width: '280px', height: '400px', overflow: 'hidden' }}>
                                             <CustomCard
                                                 photo={post.image_url}
                                                 descriptionImage={post.image_alt ?? ""}
                                                 title={(post.title || '').toUpperCase()}
                                                 datePost={post.dataPostagem}
                                                 text={post.description}
+                                                textSx={{
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis',
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 5,
+                                                    WebkitBoxOrient: 'vertical',
+                                                    whiteSpace: 'normal',
+                                                    minHeight: '3.6em'
+                                                }}
                                             />
                                         </Box>
                                     </Box>
