@@ -80,7 +80,7 @@ export const Title = ({ children, color = '#fff', fontFamily, fontSize, fontWeig
 );
 
 /* COMPONENTE DE TEXTO DE SEÇÃO */
-export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight, padding, textAlign, ...rest }) => (
+export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeight, padding, textAlign, decoration, ...rest }) => (
     <Typography
         variant="body1"
         sx={{
@@ -95,7 +95,8 @@ export const Text = ({ children, color, fontFamily, fontSize = '1rem', fontWeigh
             paddingBlock: padding,
             textDecoration: 'none',
             textOverflow: 'ellipsis',
-            textAlign: textAlign
+            textAlign: textAlign,
+            fontStyle: decoration
         }}
         id="text"
         style={{
