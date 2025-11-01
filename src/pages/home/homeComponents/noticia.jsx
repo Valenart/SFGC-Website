@@ -83,7 +83,7 @@ export default function NoticiaSection() {
                     </Text>
                 </Box>
                 {posts && posts.length > 0 ? (
-                    <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} fullWidth maxWidth="md">
+                    <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} fullWidth disableRestoreFocus maxWidth="md">
                         <Box sx={{ width: '100%', p: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <CustomCard
                                 height={"auto"}
