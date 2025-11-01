@@ -39,7 +39,7 @@ export default function Fotos() {
                 Explore nossa galeria de fotos e confira registros especiais do São Francisco Golf Club. Clique em qualquer imagem para ampliar e visualizar em detalhes.
             </Text>
 
-            {isData ? (
+            {isData && photos.length > 0 ? (
                 <PhotoProvider>
                     <ImageList cols={3} >
                         {photos ? photos.map(photo => (
@@ -64,14 +64,15 @@ export default function Fotos() {
                                 </PhotoView>
                             </ImageListItem>
                         )) : (
-                            (<Box sx={{ display: 'flex', paddingBlock: 4 }}>
-                                <CircularProgress color={COLOR_PRIMARY} />
-                            </Box>)
+                            (<SectionType color={COLOR_DARK} paddingBlock={'10px'}>NENHUMA FOTO ENCONTRADA</SectionType>)
+
                         )}
                     </ImageList>
                 </PhotoProvider>
             ) :
-                (<SectionType color={COLOR_DARK} paddingBlock={'10px'}>NENHUMA FOTO ENCONTRADA</SectionType>)
+                (<Box sx={{ display: 'flex', paddingBlock: 4 }}>
+                    <CircularProgress color={COLOR_PRIMARY} />
+                </Box>)
             }
         </Grid>
     )

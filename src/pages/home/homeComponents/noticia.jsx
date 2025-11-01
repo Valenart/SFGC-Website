@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Box } from '@mui/material';
+import { Box, Dialog } from '@mui/material';
 import bgNoticia from '../../../assets/Home/Noticias/BackgroundNoticias.jpg';
 import { SectionType, Title, Text, CustomCard } from '../../../components/globalComponents/globalComponents.jsx';
 import './homeComponents.css';
@@ -18,11 +18,14 @@ export default function NoticiaSection() {
 
     const [posts, setposts] = useState([]);
     const [isData, setIsData] = useState(true);
+    const [dialogOpen, setDialogOpen] = useState(false);
+    const [NumberPostid, setNumberPostid] = useState(0);
 
     const getPosts = async () => {
         try {
             const response = await axios.get('https://sfgc-website-api.onrender.com/posts');
             const data = response.data.posts
+            console.log(data);
             setposts(data);
         } catch (error) {
             console.error('Houve um erro ao trazer as postagens:', error);
@@ -30,6 +33,26 @@ export default function NoticiaSection() {
             setIsData(false);
             return [];
         }
+    }
+
+    const formatarTempo = (tempo) => {
+        const date = new Date(tempo);
+        if (isNaN(date.getTime())) return '';
+        return date.toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+        });
+    }
+
+    const handlePostsClick = (postId) => {
+        const index = posts.findIndex(p => p.id === postId);
+        if (index === -1) {
+            console.error("Post não encontrado para o ID:", postId);
+            return;
+        }
+        setNumberPostid(index);
+        setDialogOpen(true);
     }
 
     useEffect(() => {
@@ -60,6 +83,30 @@ export default function NoticiaSection() {
                         Confira as novidades e os eventos recentes do clube. Fique atento às atualizações.
                     </Text>
                 </Box>
+                {posts && posts.length > 0 ? (
+                    <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} fullWidth maxWidth="md">
+                        <Box sx={{ width: '100%', p: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <CustomCard
+                                height={"auto"}
+                                photo={posts[NumberPostid].image_url}
+                                descriptionImage={posts[NumberPostid].image_alt ?? ""}
+                                title={(posts[NumberPostid].title).toUpperCase()}
+                                datePost={formatarTempo(posts[NumberPostid].data_postagem)}
+                                text={posts[NumberPostid].description}
+                                textSx={{
+                                    whiteSpace: 'pre-line',
+                                    wordBreak: 'break-word',
+                                    fontSize: '1.1rem',
+                                    lineHeight: 1.6,
+                                    maxHeight: 'none',
+                                    WebkitLineClamp: 'unset',
+                                    display: 'block',
+                                }}
+                                cardSx={{ width: '100%', maxWidth: 600, minHeight: 300, boxShadow: 3, background: '#fff' }}
+                            />
+                        </Box>
+                    </Dialog>
+                ) : ''}
 
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: MAX_CONTENT_WIDTH, mx: 0, '--swiper-theme-color': '#B58017', '--swiper-navigation-color': '#B58017', '--swiper-pagination-color': '#B58017' }}>
                     {isData ? (<Swiper
@@ -79,14 +126,14 @@ export default function NoticiaSection() {
                             .sort((a, b) => b.id - a.id)
                             .slice(0, 3)
                             .map((post, id) => (
-                                <SwiperSlide key={post.id ?? id} style={{ display: 'flex', justifyContent: 'center' }}>
+                                <SwiperSlide key={post.id ?? id} style={{ display: 'flex', justifyContent: 'center', }} onClick={() => handlePostsClick(post.id)}>
                                     <Box sx={{ paddingInline: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        <Box sx={{ width: '280px', height: '400px', overflow: 'hidden' }}>
+                                        <Box sx={{ width: '280px', height: '400px', overflow: 'hidden', cursor: 'pointer', }}>
                                             <CustomCard
                                                 photo={post.image_url}
                                                 descriptionImage={post.image_alt ?? ""}
                                                 title={(post.title || '').toUpperCase()}
-                                                datePost={post.dataPostagem}
+                                                datePost={formatarTempo(post.data_postagem)}
                                                 text={post.description}
                                                 textSx={{
                                                     overflow: 'hidden',

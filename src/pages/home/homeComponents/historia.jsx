@@ -30,7 +30,6 @@ export default function HistoriaSection() {
 				bgcolor: COLOR_BG,
 				width: '100%',
 				py: { xs: 4, md: 8 },
-
 			}}
 		>
 			<Box
