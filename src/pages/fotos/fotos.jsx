@@ -8,9 +8,10 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import CircularProgress from '@mui/material/CircularProgress';
 
+const COLOR_DARK = '#20491A';
+
 export default function Fotos() {
-    const COLOR_PRIMARY = '#B58017';
-    const COLOR_DARK = '#20491A';
+
 
     const [photos, setPhotos] = useState([]);
     const [isData, setIsData] = useState(true);
@@ -71,7 +72,7 @@ export default function Fotos() {
                 </PhotoProvider>
             ) :
                 (<Box sx={{ display: 'flex', paddingBlock: 4 }}>
-                    <CircularProgress color={COLOR_PRIMARY} />
+                    <CircularProgress />
                 </Box>)
             }
         </Grid>

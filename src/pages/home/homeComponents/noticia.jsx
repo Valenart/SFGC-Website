@@ -25,7 +25,6 @@ export default function NoticiaSection() {
         try {
             const response = await axios.get('https://sfgc-website-api.onrender.com/posts');
             const data = response.data.posts
-            console.log(data);
             setposts(data);
         } catch (error) {
             console.error('Houve um erro ao trazer as postagens:', error);
