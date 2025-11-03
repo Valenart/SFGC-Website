@@ -25,12 +25,12 @@ export default function ContatoSection() {
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
                         <SectionType color={COLOR_DARK} fontFamily="inherit" fontSize="1.2rem">
                             HORÁRIOS DE FUNCIONAMENTO
                         </SectionType>
                         <Grid container item xs={12} md={6} direction={{ xs: 'row', md: 'column' }} sx={{ alignItems: 'flex-start' }}>
-                            <Grid item xs={6} md={12}>
+                            <Grid item xs={6} md={12} paddingBlock={{ xs: 0, md: 1 }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                                     <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" fontWeight="600">
                                         CAMPO
@@ -41,7 +41,7 @@ export default function ContatoSection() {
                                     </Text>
                                 </Box>
                             </Grid>
-                            <Grid item xs={6} md={12}>
+                            <Grid item xs={6} md={12} paddingBlock={{ xs: 0, md: 1 }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                                     <Text color={COLOR_DARK} fontFamily="inherit" fontSize="1rem" fontWeight="600">
                                         DRIVE RANGE

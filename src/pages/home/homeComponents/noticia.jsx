@@ -20,6 +20,9 @@ export default function NoticiaSection() {
     const [isData, setIsData] = useState(true);
     const [dialogOpen, setDialogOpen] = useState(false);
     const [NumberPostid, setNumberPostid] = useState(0);
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
+
 
     const getPosts = async () => {
         try {
@@ -82,6 +85,8 @@ export default function NoticiaSection() {
                         Confira as novidades e os eventos recentes do clube. Fique atento às atualizações.
                     </Text>
                 </Box>
+
+                {/*DIALOG*/}
                 {posts && posts.length > 0 ? (
                     <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} fullWidth disableRestoreFocus maxWidth="md">
                         <Box sx={{ width: '100%', p: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -120,14 +125,25 @@ export default function NoticiaSection() {
                             1200: { slidesPerView: 3, centeredSlides: false },
                         }}
                     >
+                        {/*POSTS*/}
                         {posts && posts.length > 0 ? posts
                             .slice()
                             .sort((a, b) => b.id - a.id)
                             .slice(0, 3)
                             .map((post, id) => (
-                                <SwiperSlide key={post.id ?? id} style={{ display: 'flex', justifyContent: 'center', }} onClick={() => handlePostsClick(post.id)}>
+                                <SwiperSlide key={post.id ?? id} style={{ display: 'flex', justifyContent: 'center' }} onClick={() => handlePostsClick(post.id)}>
                                     <Box sx={{ paddingInline: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        <Box sx={{ width: '280px', height: '400px', overflow: 'hidden', cursor: 'pointer', }}>
+                                        <Box onMouseEnter={() => setHoveredIndex(id)}
+                                            onMouseLeave={() => setHoveredIndex(null)}
+                                            sx={{
+                                                width: '280px',
+                                                height: '400px',
+                                                overflow: 'hidden',
+                                                cursor: 'pointer',
+                                                filter: hoveredIndex === id ? 'brightness(0.9)' : 'none',
+                                                transition: 'filter 0.2s ease-in-out'
+                                            }}
+                                        >
                                             <CustomCard
                                                 photo={post.image_url}
                                                 descriptionImage={post.image_alt ?? ""}

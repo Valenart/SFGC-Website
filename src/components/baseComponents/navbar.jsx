@@ -122,7 +122,7 @@ export default function Navbar({ handleClickMenu }) {
                                         <SectionType color={COLOR_DARK} fontFamily="inherit" fontSize="0.9rem">ÁREA ADMINISTRATIVA</SectionType>
                                         <Text sx={{ fontSize: '0.95rem', color: '#333' }}>Acesso exclusivo para funcionários.</Text>
 
-                                        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
+                                        <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, mt: 1 }}>
                                             <Button component={Link} to="/login" variant="contained" sx={{ backgroundColor: '#B58017', color: '#fff', textTransform: 'none', boxShadow: 'none', '&:hover': { backgroundColor: '#a06e13' } }} onClick={handlePopoverClose}>
                                                 ACESSAR
                                             </Button>
