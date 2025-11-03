@@ -47,22 +47,27 @@ export default function Login() {
   const handleClickShowPassword = () => setShowPassword((s) => !s);
 
   // submit handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // validação simples
     if (!form.username || !form.password) {
       setSnackbar({ open: true, message: 'Preencha usuário e senha.', severity: 'warning' });
       return;
     }
 
     setIsSubmitting(true);
-
-    setTimeout(() => {
+    try {
+      const response = await axios.post('https://sfgc-website-api.onrender.com/auth/login', {
+        username: form.username,
+        password: form.password,
+      });
+      setSnackbar({ open: true, message: 'Login realizado com sucesso!', severity: 'success' });
+      setForm({ username: '', password: '', keepConnected: false });
+    } catch (error) {
+      setSnackbar({ open: true, message: 'Usuário ou senha inválidos.', severity: 'error' });
+    } finally {
       setIsSubmitting(false);
-      setSnackbar({ open: true, message: 'Login enviado com sucesso!', severity: 'success' });
-      // aqui você pode redirecionar ou limpar o formulário
-    }, 900);
+    }
   };
 
   // snackbar close

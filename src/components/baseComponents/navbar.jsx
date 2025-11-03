@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Popover from '@mui/material/Popover';
 import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
 import Container from '@mui/material/Container';
 
 /** ICONS **/
@@ -30,11 +31,17 @@ const COLOR_DARK = '#20491A';
 
 export default function Navbar({ handleClickMenu }) {
 
+    const authorization = false;
+
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handlePersonClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
+    const handleOpenPopover = () => {
+
+    }
 
     const handlePopoverClose = () => {
         setAnchorEl(null);
@@ -91,6 +98,11 @@ export default function Navbar({ handleClickMenu }) {
                                 <IconButton onClick={handlePersonClick}>
                                     <Person sx={{ color: 'white' }} />
                                 </IconButton>
+                                {authorization ?
+                                    <IconButton onClick={handleOpenPopover}>
+                                        <AddIcon sx={{ color: 'white' }} />
+                                    </IconButton>
+                                    : ''}
                             </Box>
 
                             <Popover
@@ -122,7 +134,7 @@ export default function Navbar({ handleClickMenu }) {
                                         <SectionType color={COLOR_DARK} fontFamily="inherit" fontSize="0.9rem">ÁREA ADMINISTRATIVA</SectionType>
                                         <Text sx={{ fontSize: '0.95rem', color: '#333' }}>Acesso exclusivo para funcionários.</Text>
 
-                                        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
+                                        <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, mt: 1 }}>
                                             <Button component={Link} to="/login" variant="contained" sx={{ backgroundColor: '#B58017', color: '#fff', textTransform: 'none', boxShadow: 'none', '&:hover': { backgroundColor: '#a06e13' } }} onClick={handlePopoverClose}>
                                                 ACESSAR
                                             </Button>
